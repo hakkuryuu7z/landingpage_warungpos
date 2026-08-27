@@ -76,10 +76,10 @@ Di komputer lokal (projek Electron), buka `scripts/publish-release.mjs`:
 ```javascript
 const VPS_CONFIG = {
   ENABLED: true,
-  USER: 'root',
-  IP: '123.45.67.89', // Masukkan IP VPS Anda
-  PATH: '/var/www/landing/' // Path folder landing di VPS tempat docker compose jalan
+  USER: 'hakkuryuu7z',
+  IP: '23.80.82.143', // Masukkan IP VPS Anda
+  PATH: '/home/hakkuryuu7z/landingpage_warungpos/' // Path folder landing di VPS tempat docker compose jalan
 };
 ```
 
-Setiap kali Anda menjalankan `npm run dist` di lokal, file rilis `.exe` baru dan metadata akan di-upload via SCP ke `/var/www/landing/`. Karena Docker Nginx me-mount folder tersebut, **update langsung live seketika tanpa perlu restart container Docker di VPS!**
+Setiap kali Anda menjalankan `npm run dist` di lokal, file rilis `.exe` baru dan metadata akan di-upload via SCP ke `/home/hakkuryuu7z/landingpage_warungpos/`. Karena Docker Nginx me-mount folder tersebut, **update langsung live seketika tanpa perlu restart container Docker di VPS!**
