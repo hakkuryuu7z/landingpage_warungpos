@@ -1,60 +1,118 @@
-/* Custom Animations & UI Styles for WarungPOS Landing Page */
+/* Bright White & Blue Glassmorphism Design System for WarungPOS */
 
-@keyframes bounceSlow {
-  0%, 100% {
-    transform: translateY(-5px);
-  }
-  50% {
-    transform: translateY(5px);
-  }
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+  /* White & Blue Light Canvas Colors */
+  --bg-light-canvas: #F4F7FF;
+  --bg-white-pearl: #FFFFFF;
+  
+  --blue-primary: #2563EB;
+  --blue-vibrant: #3B82F6;
+  --blue-deep: #1D4ED8;
+  --blue-sky: #0284C7;
+  --blue-cyan: #06B6D4;
+  --slate-dark: #0F172A;
+  --slate-body: #334155;
+  --slate-sub: #64748B;
+
+  /* Glassmorphism Light Tokens */
+  --glass-white-bg: rgba(255, 255, 255, 0.75);
+  --glass-white-hover: rgba(255, 255, 255, 0.92);
+  --glass-light-border: rgba(219, 234, 254, 0.8);
+  --glass-blue-border: rgba(59, 130, 246, 0.35);
+  --glass-shadow: 0 10px 35px -5px rgba(37, 99, 235, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --glass-shadow-hover: 0 20px 45px -10px rgba(37, 99, 235, 0.2), 0 0 0 1px rgba(59, 130, 246, 0.3);
 }
 
-@keyframes pulseSlow {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.85;
-    transform: scale(1.02);
-  }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-light-canvas);
+  color: var(--slate-body);
+  overflow-x: hidden;
 }
 
-.animate-bounce-slow {
-  animation: bounceSlow 4s ease-in-out infinite;
+/* Particle Canvas Container */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.animate-pulse-slow {
-  animation: pulseSlow 5s ease-in-out infinite;
+/* Glassmorphism Frosted Light Container */
+.glass-card-light {
+  background: var(--glass-white-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-light-border);
+  box-shadow: var(--glass-shadow);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
-/* Custom Scrollbar for Smooth UX */
-::-webkit-scrollbar {
-  width: 8px;
+.glass-card-light:hover {
+  background: var(--glass-white-hover);
+  border-color: var(--glass-blue-border);
+  box-shadow: var(--glass-shadow-hover);
+  transform: translateY(-4px);
 }
 
-::-webkit-scrollbar-track {
-  background: #020617;
+/* Glass Header Sticky Bar */
+.glass-navbar-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 9999px;
+/* Ambient Glowing Background Orbs */
+.glass-glow-blue-light {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(244, 247, 255, 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+.glass-glow-indigo-light {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(244, 247, 255, 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
 }
 
-/* Custom Range Slider Styling */
+.glass-glow-cyan-light {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(244, 247, 255, 0) 70%);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+/* Vibrant Blue Gradient Text */
+.text-gradient-blue-main {
+  background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 50%, #0284C7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Range Slider Styling for Calculator */
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: #3b82f6;
-  border: 3px solid #020617;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+  background: #2563EB;
+  border: 3.5px solid #FFFFFF;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
   cursor: pointer;
   transition: transform 0.15s ease;
 }
@@ -70,4 +128,22 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 .faq-toggle.active svg {
   transform: rotate(180deg);
+}
+
+/* Custom Light Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F7FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563EB;
 }

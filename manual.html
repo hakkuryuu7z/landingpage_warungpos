@@ -7,7 +7,7 @@
   <title>Manual Book & Panduan Penggunaan - WarungPOS Offline v2.0.5</title>
   <meta name="description" content="Buku panduan lengkap penggunaan aplikasi kasir POS WarungPOS v2.0.5 untuk Toko Sembako, Minimarket, & UMKM.">
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,190 +15,226 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Custom Glassmorphism Styles -->
+  <link rel="stylesheet" href="./styles.css">
+
   <style>
     @media print {
       .no-print { display: none !important; }
       body { background: white !important; color: black !important; }
-      .print-shadow-none { shadow: none !important; border: 1px solid #e2e8f0 !important; }
+      .print-shadow-none { box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
     }
   </style>
 </head>
 
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white">
+<body class="bg-[#F4F7FF] text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden relative">
+
+  <!-- CANVAS JS PARTICLES BACKGROUND -->
+  <canvas id="particle-canvas" class="no-print"></canvas>
+
+  <!-- FLOATING LIGHT BLUE GLASS AURAS -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] pointer-events-none z-0 no-print">
+    <div class="glass-glow-blue-light top-[-100px] left-[10%]"></div>
+    <div class="glass-glow-indigo-light top-[150px] right-[10%]"></div>
+  </div>
 
   <!-- HEADER NAVIGATION -->
-  <header class="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/90 border-b border-slate-800 no-print">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between py-4">
-      <a href="./index.html" class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-blue-600 text-white font-black text-sm flex items-center justify-center shadow-lg shadow-blue-500/30">W</div>
-        <span class="text-lg font-extrabold text-white">Warung<span class="text-blue-500">POS</span> <span class="text-xs text-slate-400 font-medium ml-1">Manual Book v2.0.5</span></span>
+  <header class="glass-navbar-light sticky top-0 z-50 transition-all duration-300 shadow-sm no-print" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="./index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-blue-500 to-sky-400 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-all">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <span class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+          Warung<span class="text-blue-600">POS</span>
+          <span class="text-xs text-slate-500 font-semibold border-l border-slate-300 pl-2">Manual Book v2.0.5</span>
+        </span>
       </a>
 
       <div class="flex items-center gap-3">
-        <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition flex items-center gap-2 border border-slate-700">
-          <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-4H9a2 2 0 00-2 2v10a2 2 0 002 2h6a2 2 0 002-2V5a2 2 0 00-2-2zm-6 14h.01"></path></svg>
+        <button onclick="window.print()" class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-2 border border-slate-200 shadow-xs">
+          <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-4H9a2 2 0 00-2 2v10a2 2 0 002 2h6a2 2 0 002-2V5a2 2 0 00-2-2zm-6 14h.01"></path></svg>
           <span>Cetak / Export PDF</span>
         </button>
-        <a href="./index.html" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Kembali ke Web</a>
+        <a href="./index.html" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white text-xs font-bold transition shadow-md shadow-blue-600/30">
+          Kembali ke Web
+        </a>
       </div>
     </div>
   </header>
 
   <!-- MAIN CONTAINER -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-12 gap-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-12 gap-8 relative z-10">
     
     <!-- SIDEBAR CHAPTERS -->
     <aside class="col-span-12 lg:col-span-3 space-y-2 no-print sticky top-24 h-fit">
-      <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-        <p class="text-xs font-extrabold text-blue-400 uppercase tracking-widest">Daftar Bab Panduan</p>
-        <nav class="space-y-1 text-xs font-semibold text-slate-300">
-          <a href="#bab1" class="block px-3 py-2 rounded-xl hover:bg-slate-800 hover:text-white transition">BAB 1: Persiapan Sistem & Lisensi</a>
-          <a href="#bab2" class="block px-3 py-2 rounded-xl hover:bg-slate-800 hover:text-white transition">BAB 2: Dashboard & Laba Kotor</a>
-          <a href="#bab3" class="block px-3 py-2 rounded-xl hover:bg-slate-800 hover:text-white transition">BAB 3: Master Data Produk & Multi-Satuan</a>
-          <a href="#bab4" class="block px-3 py-2 rounded-xl hover:bg-slate-800 hover:text-white transition">BAB 4: Terminal POS Kasir (F5 / Enter)</a>
-          <a href="#bab5" class="block px-3 py-2 rounded-xl hover:bg-slate-800 hover:text-white transition">BAB 5: Export Laporan & Void Nota</a>
-          <a href="#bab6" class="block px-3 py-2 rounded-xl hover:bg-slate-800 hover:text-white transition">BAB 6: 3 Template Struk Thermal</a>
-          <a href="#bab7" class="block px-3 py-2 rounded-xl hover:bg-slate-800 hover:text-white transition">BAB 7: Backup Database & Import Excel</a>
-          <a href="#bab8" class="block px-3 py-2 rounded-xl hover:bg-slate-800 hover:text-white transition">BAB 8: Hak Akses User (Admin vs Kasir)</a>
-          <a href="#bab9" class="block px-3 py-2 rounded-xl hover:bg-slate-800 hover:text-white transition">BAB 9: Troubleshooting & FAQ</a>
+      <div class="glass-card-light p-5 rounded-3xl border border-blue-100 space-y-4 shadow-xl">
+        <div class="flex items-center gap-2 pb-2 border-b border-slate-100">
+          <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+          <p class="text-xs font-extrabold text-blue-700 uppercase tracking-widest">Daftar Bab Panduan</p>
+        </div>
+        <nav class="space-y-1 text-xs font-semibold text-slate-700">
+          <a href="#bab1" class="block px-3 py-2 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">BAB 1: Persiapan Sistem & Lisensi</a>
+          <a href="#bab2" class="block px-3 py-2 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">BAB 2: Dashboard & Laba Kotor</a>
+          <a href="#bab3" class="block px-3 py-2 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">BAB 3: Master Data Produk & Multi-Satuan</a>
+          <a href="#bab4" class="block px-3 py-2 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">BAB 4: Terminal POS Kasir (F5 / Enter)</a>
+          <a href="#bab5" class="block px-3 py-2 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">BAB 5: Export Laporan & Void Nota</a>
+          <a href="#bab6" class="block px-3 py-2 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">BAB 6: 3 Template Struk Thermal</a>
+          <a href="#bab7" class="block px-3 py-2 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">BAB 7: Backup Database & Import Excel</a>
+          <a href="#bab8" class="block px-3 py-2 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">BAB 8: Hak Akses User (Admin vs Kasir)</a>
+          <a href="#bab9" class="block px-3 py-2 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">BAB 9: Troubleshooting & FAQ</a>
         </nav>
       </div>
     </aside>
 
     <!-- DOCUMENT CONTENT -->
-    <main class="col-span-12 lg:col-span-9 space-y-12 text-slate-300 leading-relaxed text-sm">
+    <main class="col-span-12 lg:col-span-9 space-y-8 text-slate-700 leading-relaxed text-sm">
       
       <!-- HERO DOCUMENT HEADER -->
-      <div class="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 space-y-4">
+      <div class="glass-card-light p-8 sm:p-10 rounded-3xl border border-blue-100 space-y-4 shadow-xl">
         <div class="flex items-center gap-2">
-          <span class="px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full text-xs font-bold uppercase tracking-wider">Buku Panduan Resmi</span>
-          <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-bold">Versi 2.0.5</span>
+          <span class="px-3 py-1 bg-blue-100 text-blue-700 border border-blue-200 rounded-full text-xs font-extrabold uppercase tracking-wider">Buku Panduan Resmi</span>
+          <span class="px-3 py-1 bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-full text-xs font-extrabold">Versi 2.0.5</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Manual Book & Panduan Penggunaan WarungPOS</h1>
-        <p class="text-slate-400 text-sm font-medium">Panduan lengkap langkah demi langkah pengoperasian aplikasi kasir POS offline untuk pemilik toko dan kasir.</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Manual Book & Panduan Penggunaan WarungPOS</h1>
+        <p class="text-slate-600 text-sm font-medium">Panduan lengkap langkah demi langkah pengoperasian aplikasi kasir POS offline untuk pemilik toko dan kasir.</p>
       </div>
 
       <!-- BAB 1 -->
-      <section id="bab1" class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-4">
-        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
-          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black">1</span>
+      <section id="bab1" class="glass-card-light p-8 rounded-3xl border border-blue-100 space-y-4 shadow-xl">
+        <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black shadow-md shadow-blue-600/30">1</span>
           <span>BAB 1: Pengenalan & Persiapan Sistem</span>
         </h2>
         <p>WarungPOS berjalan 100% secara offline di komputer/laptop Windows. Semua data tersimpan aman pada penyimpanan lokal toko Anda tanpa tergantung koneksi internet. Aplikasi ini memiliki proteksi <strong>Single Instance Lock</strong> untuk mencegah aplikasi terbuka ganda secara tidak sengaja.</p>
 
-        <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
-          <p class="font-bold text-white text-xs uppercase tracking-wide">Langkah Aktivasi Lisensi Aplikasi:</p>
-          <ol class="list-decimal list-inside space-y-1 text-xs text-slate-400 font-medium">
-            <li>Jalankan file <code class="text-blue-400 bg-slate-900 px-1.5 py-0.5 rounded">Warung POS.exe</code>.</li>
+        <div class="p-5 rounded-2xl bg-white border border-blue-100 space-y-2 shadow-xs">
+          <p class="font-bold text-slate-900 text-xs uppercase tracking-wide text-blue-600">Langkah Aktivasi Lisensi Aplikasi:</p>
+          <ol class="list-decimal list-inside space-y-1 text-xs text-slate-600 font-medium">
+            <li>Jalankan file <code class="text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded font-mono">Warung POS.exe</code>.</li>
             <li>Salin Kode <strong>Hardware ID (HWID)</strong> yang tampil di halaman Aktivasi.</li>
-            <li>Kirim HWID ke Sales/Support untuk mendapatkan Serial Key Aktivasi Permanen.</li>
+            <li>Kirim HWID ke Sales/Support WhatsApp (<code class="text-blue-700 font-mono">+62895321742593</code>) untuk mendapatkan Serial Key Aktivasi Permanen.</li>
             <li>Masukkan Serial Key lalu klik <strong>Aktivasi Sekarang</strong>.</li>
           </ol>
         </div>
       </section>
 
       <!-- BAB 2 -->
-      <section id="bab2" class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-4">
-        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
-          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black">2</span>
+      <section id="bab2" class="glass-card-light p-8 rounded-3xl border border-blue-100 space-y-4 shadow-xl">
+        <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black shadow-md shadow-blue-600/30">2</span>
           <span>BAB 2: Panduan Dashboard Utama & Notifikasi Stok</span>
         </h2>
         <p>Dashboard utama menyajikan ringkasan grafik omset harian, keuntungan bersih (laba kotor), dan peringatan stok menipis secara otomatis.</p>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-medium">
-          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
-            <p class="font-bold text-blue-400 mb-1">🔔 Icon Lonceng Stok Menipis</p>
-            <p class="text-slate-400">Terletak di header atas sebelah profil user. Menampilkan badge merah berdenyut jika ada produk dengan stok dasar &le; 10 PCS atau habis (0).</p>
+          <div class="p-5 rounded-2xl bg-white border border-blue-100 shadow-xs space-y-1">
+            <p class="font-bold text-blue-700 flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+              <span>Icon Lonceng Stok Menipis</span>
+            </p>
+            <p class="text-slate-600">Terletak di header atas sebelah profil user. Menampilkan badge merah jika ada produk dengan stok dasar &le; 10 PCS atau habis (0).</p>
           </div>
-          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
-            <p class="font-bold text-emerald-400 mb-1">📊 4 Kartu KPI Harian & Laba Kotor</p>
-            <p class="text-slate-400">Menghitung Omset Hari Ini, Untung Bersih (Margin Laba Kotor), Total Nota Transaksi, dan Total Barang Terjual (PCS).</p>
+          <div class="p-5 rounded-2xl bg-white border border-blue-100 shadow-xs space-y-1">
+            <p class="font-bold text-emerald-700 flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+              <span>4 Kartu KPI Harian & Laba Kotor</span>
+            </p>
+            <p class="text-slate-600">Menghitung Omset Hari Ini, Untung Bersih (Margin Laba Kotor), Total Nota Transaksi, dan Total Barang Terjual (PCS).</p>
           </div>
         </div>
       </section>
 
       <!-- BAB 3 -->
-      <section id="bab3" class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-4">
-        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
-          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black">3</span>
+      <section id="bab3" class="glass-card-light p-8 rounded-3xl border border-blue-100 space-y-4 shadow-xl">
+        <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black shadow-md shadow-blue-600/30">3</span>
           <span>BAB 3: Master Data Produk & Multi-Satuan</span>
         </h2>
         <p>Aplikasi mendukung fitur variasi multi-satuan per produk (misal: <em>Pcs</em>, <em>Pack</em>, <em>Dus</em>) lengkap dengan konversi otomatis.</p>
 
-        <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
-          <p class="font-bold text-white uppercase tracking-wide">Cara Mengedit Stok / Mengurangi Stok Barang:</p>
-          <p class="text-slate-400">Buka menu <strong>Data Produk</strong> &rarr; Klik <strong>Kelola</strong> pada produk target &rarr; Klik <strong>Edit</strong> pada variasi &rarr; Isi kolom <strong>Tambah Stok (Global/PCS)</strong> dengan angka minus (misal: <code class="text-rose-400 bg-slate-900 px-1 py-0.5 rounded">-10</code>) untuk mengurangi stok, atau angka positif untuk menambah stok.</p>
+        <div class="p-5 rounded-2xl bg-white border border-blue-100 space-y-2 text-xs shadow-xs">
+          <p class="font-bold text-slate-900 uppercase tracking-wide text-blue-600">Cara Mengedit Stok / Mengurangi Stok Barang:</p>
+          <p class="text-slate-600">Buka menu <strong>Data Produk</strong> &rarr; Klik <strong>Kelola</strong> pada produk target &rarr; Klik <strong>Edit</strong> pada variasi &rarr; Isi kolom <strong>Tambah Stok (Global/PCS)</strong> dengan angka minus (misal: <code class="text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded font-mono">-10</code>) untuk mengurangi stok, atau angka positif untuk menambah stok.</p>
         </div>
       </section>
 
       <!-- BAB 4 -->
-      <section id="bab4" class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-4">
-        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
-          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black">4</span>
+      <section id="bab4" class="glass-card-light p-8 rounded-3xl border border-blue-100 space-y-4 shadow-xl">
+        <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black shadow-md shadow-blue-600/30">4</span>
           <span>BAB 4: Terminal Transaksi POS Kasir (Shortcut F5 & Enter)</span>
         </h2>
         <p>Memproses penjualan belanja konsumen dengan sangat cepat kurang dari 1 detik.</p>
 
-        <div class="p-4 rounded-2xl bg-blue-950/40 border border-blue-800/60 text-xs font-semibold text-blue-200 flex items-center gap-3">
-          <span class="text-lg">⌨️</span>
+        <div class="p-5 rounded-2xl bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-900 flex items-center gap-3 shadow-xs">
+          <svg class="w-6 h-6 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
           <span>Pintasan Keyboard: Tekan tombol <strong>F5</strong> di mana saja untuk membuka POS Kasir. Tekan <strong>Enter</strong> pada modal pembayaran untuk langsung cetak struk tanpa perlu menggunakan mouse!</span>
         </div>
       </section>
 
       <!-- BAB 5 -->
-      <section id="bab5" class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-4">
-        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
-          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black">5</span>
+      <section id="bab5" class="glass-card-light p-8 rounded-3xl border border-blue-100 space-y-4 shadow-xl">
+        <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black shadow-md shadow-blue-600/30">5</span>
           <span>BAB 5: Riwayat Transaksi, Export Laporan & Void Nota</span>
         </h2>
-        <p>Memantau riwayat penjualan, mencetak ulang nota transaksi dengan watermark <code class="text-amber-400 bg-slate-950 px-1.5 py-0.5 rounded">[ CETAK ULANG ]</code>, export laporan Excel & PDF, dan melakukan pembatalan nota (Void) khusus akun Admin.</p>
-        <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs space-y-1">
-          <p class="font-bold text-emerald-400">📊 Export Excel Multi-Sheet & Laporan PDF Resmi</p>
-          <p class="text-slate-400">Fitur <strong>Export Excel</strong> mengunduh file <code class="text-emerald-400">.xlsx</code> multi-sheet yang memisahkan Tab Laporan Penjualan, Tab Laba Rugi, dan Tab Detail Item Terjual secara rapi.</p>
+        <p>Memantau riwayat penjualan, mencetak ulang nota transaksi dengan watermark <code class="text-amber-700 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded font-mono">[ CETAK ULANG ]</code>, export laporan Excel & PDF, dan melakukan pembatalan nota (Void) khusus akun Admin.</p>
+        <div class="p-5 rounded-2xl bg-white border border-blue-100 text-xs space-y-1 shadow-xs">
+          <p class="font-bold text-emerald-700">Export Excel Multi-Sheet & Laporan PDF Resmi</p>
+          <p class="text-slate-600">Fitur <strong>Export Excel</strong> mengunduh file <code class="text-emerald-700 font-mono">.xlsx</code> multi-sheet yang memisahkan Tab Laporan Penjualan, Tab Laba Rugi, dan Tab Detail Item Terjual secara rapi.</p>
         </div>
       </section>
 
       <!-- BAB 6 -->
-      <section id="bab6" class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-4">
-        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
-          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black">6</span>
+      <section id="bab6" class="glass-card-light p-8 rounded-3xl border border-blue-100 space-y-4 shadow-xl">
+        <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black shadow-md shadow-blue-600/30">6</span>
           <span>BAB 6: Pengaturan Toko & 3 Template Struk Thermal</span>
         </h2>
         <p>Mengatur Nama Toko, Alamat, Nomor HP, Ukuran Kertas (58mm / 80mm), dan pilihan 3 Template Struk Thermal: <strong>Klasik, Modern, & Minimalis</strong> yang ditenagai <strong>Zero-Delay C# Thermal Printing Engine</strong>.</p>
       </section>
 
       <!-- BAB 7 -->
-      <section id="bab7" class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-4">
-        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
-          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black">7</span>
+      <section id="bab7" class="glass-card-light p-8 rounded-3xl border border-blue-100 space-y-4 shadow-xl">
+        <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black shadow-md shadow-blue-600/30">7</span>
           <span>BAB 7: Backup Database & Import Excel</span>
         </h2>
-        <p>Mendukung <strong>Backup 1-Klik</strong> ke file <code class="text-emerald-400 bg-slate-950 px-1.5 py-0.5 rounded">.db</code> lokal serta Import data massal ribuan produk via template Excel.</p>
+        <p>Mendukung <strong>Backup 1-Klik</strong> ke file <code class="text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded font-mono">.db</code> lokal serta Import data massal ribuan produk via template Excel.</p>
       </section>
 
       <!-- BAB 8 -->
-      <section id="bab8" class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-4">
-        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
-          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black">8</span>
+      <section id="bab8" class="glass-card-light p-8 rounded-3xl border border-blue-100 space-y-4 shadow-xl">
+        <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black shadow-md shadow-blue-600/30">8</span>
           <span>BAB 8: Hak Akses Pengguna (Admin vs Kasir)</span>
         </h2>
         <p>Aplikasi membatasi hak akses role Kasir agar tidak dapat mengubah harga, menghapus produk, melihat laporan laba bersih, atau membatalkan transaksi.</p>
       </section>
 
       <!-- BAB 9 -->
-      <section id="bab9" class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-4">
-        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
-          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black">9</span>
+      <section id="bab9" class="glass-card-light p-8 rounded-3xl border border-blue-100 space-y-4 shadow-xl">
+        <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-black shadow-md shadow-blue-600/30">9</span>
           <span>BAB 9: Troubleshooting & FAQ</span>
         </h2>
-        <div class="space-y-3 text-xs">
-          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
-            <p class="font-bold text-white mb-1">Q: Printer thermal tidak keluar kertas / tidak merespon?</p>
-            <p class="text-slate-400">Buka menu <strong>Pengaturan Toko</strong> &rarr; Pastikan nama printer yang dipilih pada dropdown sesuai dengan nama printer yang terinstall di Windows Driver.</p>
+        <div class="space-y-4 text-xs">
+          <div class="p-5 rounded-2xl bg-white border border-blue-100 shadow-xs space-y-1">
+            <p class="font-bold text-slate-900 flex items-center gap-2">
+              <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-extrabold">TANYA</span>
+              <span>Printer thermal tidak keluar kertas / tidak merespon?</span>
+            </p>
+            <p class="text-slate-600 pt-1">Buka menu <strong>Pengaturan Toko</strong> &rarr; Pastikan nama printer yang dipilih pada dropdown sesuai dengan nama printer yang terinstall di Windows Driver.</p>
           </div>
-          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
-            <p class="font-bold text-white mb-1">Q: Bagaimana jika komputer toko diganti atau rusak?</p>
-            <p class="text-slate-400">Ambil file backup <code class="text-blue-400">.db</code> Anda, install aplikasi di komputer baru, kirim HWID baru ke tim support untuk pemindahan lisensi, lalu restore file database Anda.</p>
+          <div class="p-5 rounded-2xl bg-white border border-blue-100 shadow-xs space-y-1">
+            <p class="font-bold text-slate-900 flex items-center gap-2">
+              <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-extrabold">TANYA</span>
+              <span>Bagaimana jika komputer toko diganti atau rusak?</span>
+            </p>
+            <p class="text-slate-600 pt-1">Ambil file backup <code class="text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded font-mono">.db</code> Anda, install aplikasi di komputer baru, kirim HWID baru ke tim support WhatsApp (<code class="text-blue-700 font-mono">+62895321742593</code>) untuk pemindahan lisensi, lalu restore file database Anda.</p>
           </div>
         </div>
       </section>
@@ -208,10 +244,19 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="border-t border-slate-900 py-8 text-center text-xs text-slate-500 no-print">
+  <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500 relative z-10 no-print">
     <p>Manual Book WarungPOS &copy; 2026. Hak Cipta Dilindungi.</p>
   </footer>
 
+  <!-- FLOATING WHATSAPP BUTTON GLASS -->
+  <a href="https://wa.me/62895321742593?text=Halo%20Admin%20WarungPOS" target="_blank" title="Tanya via WhatsApp"
+    class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-2xl shadow-emerald-500/50 hover:scale-110 transition-transform cursor-pointer border-2 border-white no-print">
+    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+  </a>
+
+  <!-- Script JS -->
+  <script src="./latest.js"></script>
+  <script src="./script.js"></script>
 </body>
 
 </html>

@@ -48,63 +48,86 @@
     }
   </script>
 
-  <!-- Custom Styles -->
+  <!-- Custom Glassmorphism Styles -->
   <link rel="stylesheet" href="./styles.css">
 </head>
 
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden">
+<body
+  class="bg-[#F4F7FF] text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden relative">
 
-  <!-- BACKGROUND GLOW EFFECTS -->
+  <!-- CANVAS JS PARTICLES BACKGROUND -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- FLOATING LIGHT BLUE GLASS AURAS -->
   <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] pointer-events-none z-0">
-    <div class="absolute top-[-100px] left-[15%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[140px]"></div>
-    <div class="absolute top-[100px] right-[15%] w-[400px] h-[400px] bg-indigo-600/15 rounded-full blur-[120px]"></div>
+    <div class="glass-glow-blue-light top-[-100px] left-[10%]"></div>
+    <div class="glass-glow-indigo-light top-[150px] right-[10%]"></div>
+    <div class="glass-glow-cyan-light top-[500px] left-[30%]"></div>
   </div>
 
-  <!-- NAVBAR STICKY -->
-  <header class="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80 transition-all duration-300" id="main-header">
+  <!-- NAVBAR STICKY LIGHT GLASS -->
+  <header class="glass-navbar-light sticky top-0 z-50 transition-all duration-300 shadow-sm" id="main-header">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      
+
       <!-- LOGO BRAND -->
       <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform duration-300">
+        <div
+          class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-blue-500 to-sky-400 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-all">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z">
+            </path>
           </svg>
         </div>
         <div>
-          <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1.5">
-            Warung<span class="text-blue-500">POS</span>
-            <span class="text-[10px] uppercase font-extrabold px-2 py-0.5 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full">Offline</span>
+          <span class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1.5">
+            Warung<span class="text-blue-600">POS</span>
+            <span
+              class="text-[10px] uppercase font-extrabold px-2 py-0.5 bg-blue-100 text-blue-700 border border-blue-200 rounded-full">Offline</span>
           </span>
-          <span class="text-[10px] text-slate-400 block -mt-1 font-medium">Solusi Kasir UMKM Indonesia</span>
+          <span class="text-[10px] text-slate-500 block -mt-1 font-semibold">Solusi Kasir UMKM Indonesia</span>
         </div>
       </a>
 
       <!-- MENU NAVIGASI DESKTOP -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
-        <a href="#unduh" class="hover:text-blue-400 transition-colors flex items-center gap-1.5 text-blue-300 font-bold">
-          <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
+        <a href="#unduh"
+          class="hover:text-blue-600 transition-colors flex items-center gap-1.5 text-blue-700 font-bold">
+          <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
           <span>Unduh Installer</span>
         </a>
-        <a href="#fitur" class="hover:text-blue-400 transition-colors">Fitur Unggulan</a>
-        <a href="#kalkulator" class="hover:text-blue-400 transition-colors">Kalkulator UMKM</a>
-        <a href="#harga" class="hover:text-blue-400 transition-colors">Pilihan Paket</a>
-        <a href="#faq" class="hover:text-blue-400 transition-colors">FAQ</a>
-        <a href="./manual.html" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-blue-400 border border-slate-700 rounded-xl transition-colors flex items-center gap-1.5 text-xs font-bold">
-          <span>📖 Manual Book</span>
+        <a href="#fitur" class="hover:text-blue-600 transition-colors">Fitur Unggulan</a>
+        <a href="#kalkulator" class="hover:text-blue-600 transition-colors">Kalkulator UMKM</a>
+        <a href="#harga" class="hover:text-blue-600 transition-colors">Pilihan Paket</a>
+        <a href="#faq" class="hover:text-blue-600 transition-colors">FAQ</a>
+        <a href="./manual.html"
+          class="px-3.5 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200/80 rounded-xl transition-all flex items-center gap-1.5 text-xs font-bold shadow-xs">
+          <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+            </path>
+          </svg>
+          <span>Manual Book</span>
         </a>
       </nav>
 
       <!-- CTA BUTTON HEADER -->
       <div class="hidden md:flex items-center gap-3">
-        <a href="#harga" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 flex items-center gap-2">
+        <a href="#harga"
+          class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-bold text-sm transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 flex items-center gap-2">
           <span>Dapatkan Lisensi</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
         </a>
       </div>
 
       <!-- MOBILE MENU BUTTON -->
-      <button id="btn-mobile-menu" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle Navigation">
+      <button id="btn-mobile-menu"
+        class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none"
+        aria-label="Toggle Navigation">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
@@ -113,534 +136,261 @@
     </div>
 
     <!-- MOBILE NAVIGATION DROPDOWN -->
-    <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3 font-semibold text-sm">
-      <a href="#unduh" class="block py-2 text-blue-400 font-bold flex items-center gap-2">
-        <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+    <div id="mobile-menu"
+      class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 font-semibold text-sm">
+      <a href="#unduh" class="block py-2 text-blue-600 font-bold flex items-center gap-2">
+        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+        </svg>
         <span>Unduh Installer (.exe)</span>
       </a>
-      <a href="#fitur" class="block py-2 text-slate-300 hover:text-blue-400">Fitur Unggulan</a>
-      <a href="#kalkulator" class="block py-2 text-slate-300 hover:text-blue-400">Kalkulator UMKM</a>
-      <a href="#harga" class="block py-2 text-slate-300 hover:text-blue-400">Pilihan Paket</a>
-      <a href="#faq" class="block py-2 text-slate-300 hover:text-blue-400">FAQ</a>
-      <a href="./manual.html" class="block py-2 text-blue-400">📖 Manual Book</a>
-      <a href="#harga" class="block w-full text-center py-3 rounded-xl bg-blue-600 text-white font-bold mt-4 shadow-lg shadow-blue-600/30">
+      <a href="#fitur" class="block py-2 text-slate-700 hover:text-blue-600">Fitur Unggulan</a>
+      <a href="#kalkulator" class="block py-2 text-slate-700 hover:text-blue-600">Kalkulator UMKM</a>
+      <a href="#harga" class="block py-2 text-slate-700 hover:text-blue-600">Pilihan Paket</a>
+      <a href="#faq" class="block py-2 text-slate-700 hover:text-blue-600">FAQ</a>
+      <a href="./manual.html" class="block py-2 text-blue-600 font-bold flex items-center gap-2">
+        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+          </path>
+        </svg>
+        <span>Manual Book</span>
+      </a>
+      <a href="#harga"
+        class="block w-full text-center py-3 rounded-xl bg-blue-600 text-white font-bold mt-4 shadow-lg shadow-blue-600/30">
         <span>Dapatkan Lisensi Sekarang</span>
       </a>
     </div>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+  <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
+
       <!-- HERO CONTENT HEADLINE -->
       <div class="text-center max-w-4xl mx-auto space-y-6">
-        
-        <!-- BADGE TOP -->
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-blue-500/30 text-blue-300 text-xs font-bold shadow-inner">
-          <span class="flex h-2 w-2 rounded-full bg-blue-500 animate-ping"></span>
-          <span>🚀 Software POS Offline Terbaik #1 Khusus Toko & UMKM Indonesia</span>
+
+        <!-- BADGE TOP LIGHT GLASS -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/90 border border-blue-200/80 text-blue-700 text-xs font-extrabold shadow-sm backdrop-blur-md">
+          <svg class="w-4 h-4 text-blue-600 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          <span>Software POS Offline Terbaik #1 Khusus Toko & UMKM Indonesia</span>
         </div>
 
-        <!-- MAIN TITLE -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none">
+        <!-- MAIN TITLE GRADIENT -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-none">
           Kelola Toko & Transaksi Kasir <br class="hidden sm:inline">
-          <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent">Lebih Cepat Tanpa Internet</span>
+          <span class="text-gradient-blue-main">Lebih Cepat Tanpa Internet</span>
         </h1>
 
         <!-- SUBTITLE -->
-        <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
-          Aplikasi POS Kasir Desktop modern khusus Toko Sembako, Minimarket, Coffee Shop & UMKM. Bebas biaya langganan bulanan, support multi-satuan (Pcs, Dus, Pack), dan cetak struk thermal instan.
+        <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
+          Aplikasi POS Kasir Desktop modern khusus Toko Sembako, Minimarket, Coffee Shop & UMKM. Bebas biaya langganan
+          bulanan, support multi-satuan (Pcs, Dus, Pack), dan cetak struk thermal instan.
         </p>
 
         <!-- ACTION BUTTONS -->
         <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#" class="btn-download-exe w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-base transition-all shadow-xl shadow-blue-600/30 hover:shadow-blue-500/50 hover:-translate-y-1 flex items-center justify-center gap-3 group">
-            <svg class="w-6 h-6 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          <a href="#unduh"
+            class="btn-download-exe w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-base transition-all shadow-xl shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-1 flex items-center justify-center gap-3 group">
+            <svg class="w-6 h-6 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
             <div class="text-left">
-              <div class="text-[10px] text-blue-200 uppercase tracking-wider font-extrabold flex items-center gap-1">
+              <div class="text-[10px] text-blue-100 uppercase tracking-wider font-extrabold flex items-center gap-1">
                 <span>Unduh Desktop</span>
-                <span class="px-1.5 py-0.2 bg-blue-400/30 rounded text-[9px] version-text">v2.0.5</span>
+                <span class="px-1.5 py-0.2 bg-white/20 rounded text-[9px] version-text">v2.0.5</span>
               </div>
               <div class="text-sm sm:text-base font-extrabold">Download WarungPOS (.exe)</div>
             </div>
           </a>
 
-          <a href="https://wa.me/6281234567890?text=Halo%20Admin%20WarungPOS,%20saya%20tertarik%20dengan%20aplikasi%20kasir%20POS%20offline" target="_blank"
-            class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold text-base transition-all hover:-translate-y-1 flex items-center justify-center gap-2.5">
-            <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <a href="https://wa.me/62895321742593?text=Halo%20Admin%20WarungPOS,%20saya%20tertarik%20dengan%20aplikasi%20kasir%20POS%20offline"
+            target="_blank"
+            class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200/90 text-slate-800 font-bold text-base transition-all shadow-md hover:-translate-y-1 flex items-center justify-center gap-2.5">
+            <svg class="w-6 h-6 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+            </svg>
             <span>Hubungi Sales (WhatsApp)</span>
           </a>
         </div>
 
         <!-- TRUST BADGES UNDER HERO -->
-        <div class="pt-6 flex flex-wrap justify-center items-center gap-6 text-xs text-slate-400 font-semibold">
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+        <div class="pt-6 flex flex-wrap justify-center items-center gap-4 text-xs text-slate-600 font-bold">
+          <div
+            class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/80 border border-blue-100 shadow-xs backdrop-blur-md">
+            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+            </svg>
             <span>100% Offline Tanpa Internet</span>
           </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+          <div
+            class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/80 border border-blue-100 shadow-xs backdrop-blur-md">
+            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+            </svg>
             <span>Lisensi Permanen (Lifetime)</span>
           </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+          <div
+            class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/80 border border-blue-100 shadow-xs backdrop-blur-md">
+            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+            </svg>
             <span>Cetak Thermal Printer ESC/POS</span>
           </div>
         </div>
 
       </div>
 
-      <!-- HERO IMAGE SHOWCASE MOCKUP (LIVE FULL WIDTH MOCKUP FRAME) -->
+      <!-- HERO IMAGE SHOWCASE MOCKUP (PIXEL PERFECT GLASS FRAME) -->
       <div class="mt-14 relative max-w-5xl mx-auto group">
         <!-- Glow Backdrop -->
-        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition duration-1000"></div>
-        
-        <div class="relative rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden shadow-2xl">
+        <div
+          class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-sky-400 to-indigo-600 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000">
+        </div>
+
+        <div
+          class="relative rounded-3xl glass-card-light p-2 sm:p-3 overflow-hidden shadow-2xl border border-blue-200/80">
           <!-- Window Header Controls Bar -->
-          <div class="px-4 py-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+          <div class="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between rounded-t-2xl">
             <div class="flex items-center gap-2">
-              <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-              <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
-              <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-              <span class="text-xs text-slate-400 font-mono ml-2">WarungPOS Desktop App v2.4 (Offline Mode)</span>
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500"></div>
+              <span class="text-xs text-slate-300 font-mono ml-2">WarungPOS Desktop App v2.4 (Offline Mode)</span>
             </div>
-            <div class="flex items-center gap-2 text-[10px] text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
+            <div
+              class="flex items-center gap-2 text-[10px] text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
               SYSTEM READY & ONLINE LOKAL
             </div>
           </div>
 
-          <!-- APP MOCKUP UI CONTENT (LIVE FULL WIDTH) -->
-          <div class="w-full bg-slate-950 text-slate-100 text-left p-4 sm:p-6 grid grid-cols-12 gap-4 select-none">
-            
-            <!-- MINI SIDEBAR -->
-            <div class="col-span-3 sm:col-span-2 bg-slate-900/90 border border-slate-800 rounded-xl p-3 flex flex-col justify-between hidden sm:flex space-y-4">
-              <div class="space-y-4">
-                <div class="flex items-center gap-2 px-1">
-                  <div class="w-7 h-7 rounded-lg bg-blue-600 text-white font-black text-xs flex items-center justify-center">W</div>
-                  <span class="font-extrabold text-white text-xs tracking-tight">Warung<span class="text-blue-500">POS</span></span>
-                </div>
-                <div class="space-y-1 text-[11px] font-bold">
-                  <div class="px-2.5 py-2 rounded-lg bg-blue-600 text-white flex items-center gap-2 shadow-sm">
-                    <span>📊 Dashboard</span>
-                  </div>
-                  <div class="px-2.5 py-2 rounded-lg text-slate-400 hover:bg-slate-800 flex items-center gap-2">
-                    <span>🛒 POS Kasir</span>
-                  </div>
-                  <div class="px-2.5 py-2 rounded-lg text-slate-400 hover:bg-slate-800 flex items-center gap-2">
-                    <span>📜 Riwayat Nota</span>
-                  </div>
-                  <div class="px-2.5 py-2 rounded-lg text-slate-400 hover:bg-slate-800 flex items-center gap-2">
-                    <span>📦 Data Produk</span>
-                  </div>
-                  <div class="px-2.5 py-2 rounded-lg text-slate-400 hover:bg-slate-800 flex items-center gap-2">
-                    <span>⚙️ Mnj. Toko</span>
-                  </div>
-                </div>
-              </div>
-              <div class="text-[9px] text-slate-500 font-bold px-1">v2.4 Offline</div>
-            </div>
-
-            <!-- MAIN BODY AREA -->
-            <div class="col-span-12 sm:col-span-10 space-y-4">
-              
-              <!-- APP HEADER BAR -->
-              <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between">
-                <div>
-                  <h4 class="text-sm font-black text-white">Selamat Datang, Owner Toko 👋</h4>
-                  <p class="text-[10px] text-slate-400 font-medium">Ringkasan aktivitas toko & transaksi terkini hari ini.</p>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded-full text-[10px] font-bold">🔔 3 Stok Menipis</span>
-                  <div class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-[10px] font-bold border border-slate-700">👤 Owner Toko</div>
-                </div>
-              </div>
-
-              <!-- 4 STATS CARDS -->
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3">
-                  <p class="text-[10px] text-slate-400 font-bold uppercase">Omset Hari Ini</p>
-                  <p class="text-sm sm:text-base font-extrabold text-blue-400 mt-0.5">Rp 4.580.000</p>
-                  <span class="text-[9px] text-emerald-400 font-bold">+14% vs kemarin</span>
-                </div>
-                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3">
-                  <p class="text-[10px] text-slate-400 font-bold uppercase">Untung Bersih</p>
-                  <p class="text-sm sm:text-base font-extrabold text-emerald-400 mt-0.5">Rp 1.250.000</p>
-                  <span class="text-[9px] text-slate-400 font-bold">Margin 27%</span>
-                </div>
-                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3">
-                  <p class="text-[10px] text-slate-400 font-bold uppercase">Total Transaksi</p>
-                  <p class="text-sm sm:text-base font-extrabold text-purple-400 mt-0.5">48 Nota</p>
-                  <span class="text-[9px] text-purple-300 font-bold">Kasir Aktif</span>
-                </div>
-                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3">
-                  <p class="text-[10px] text-slate-400 font-bold uppercase">Barang Terjual</p>
-                  <p class="text-sm sm:text-base font-extrabold text-amber-400 mt-0.5">124 Pcs</p>
-                  <span class="text-[9px] text-amber-300 font-bold">Terdaftar</span>
-                </div>
-              </div>
-
-              <!-- CHART & RECENT TRANSACTIONS GRID -->
-              <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
-                <!-- CHART -->
-                <div class="md:col-span-7 bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 space-y-2">
-                  <div class="flex justify-between items-center text-xs">
-                    <span class="font-bold text-white">📈 Grafik Penjualan 7 Hari</span>
-                    <span class="text-[10px] text-blue-400 font-bold">Minggu Ini</span>
-                  </div>
-                  <!-- SVG Trend Line Chart -->
-                  <div class="h-28 w-full">
-                    <svg viewBox="0 0 500 120" class="w-full h-full">
-                      <defs>
-                        <linearGradient id="mockGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4" />
-                          <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.0" />
-                        </linearGradient>
-                      </defs>
-                      <path d="M 0,90 C 80,80 120,40 180,50 C 240,60 300,20 380,30 C 440,40 480,10 500,15 L 500,120 L 0,120 Z" fill="url(#mockGradient)" />
-                      <path d="M 0,90 C 80,80 120,40 180,50 C 240,60 300,20 380,30 C 440,40 480,10 500,15" fill="none" stroke="#3b82f6" stroke-width="3" />
-                      <circle cx="180" cy="50" r="4" fill="#60a5fa" />
-                      <circle cx="380" cy="30" r="4" fill="#60a5fa" />
-                      <circle cx="500" cy="15" r="5" fill="#3b82f6" stroke="#ffffff" stroke-width="2" />
-                    </svg>
-                  </div>
-                </div>
-
-                <!-- TOP PRODUCTS TABLE -->
-                <div class="md:col-span-5 bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 space-y-2">
-                  <span class="font-bold text-xs text-white block">🏆 Top 3 Produk Terlaris</span>
-                  <div class="space-y-1.5 text-[11px]">
-                    <div class="flex justify-between items-center p-1.5 rounded-lg bg-slate-800/60">
-                      <span class="font-bold text-slate-200">Indomie Goreng</span>
-                      <span class="font-extrabold text-blue-400">42 pcs</span>
-                    </div>
-                    <div class="flex justify-between items-center p-1.5 rounded-lg bg-slate-800/60">
-                      <span class="font-bold text-slate-200">Minyak Kita 1L</span>
-                      <span class="font-extrabold text-blue-400">28 pcs</span>
-                    </div>
-                    <div class="flex justify-between items-center p-1.5 rounded-lg bg-slate-800/60">
-                      <span class="font-bold text-slate-200">Kopi Kapal Api</span>
-                      <span class="font-extrabold text-blue-400">19 pcs</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
+          <!-- MOCKUP IMAGE CONTAINER -->
+          <div class="w-full overflow-hidden rounded-b-2xl bg-slate-950">
+            <img src="./assets/hero-mockup.jpg" alt="WarungPOS Desktop Interface Showcase"
+              class="w-full h-auto object-cover block">
           </div>
         </div>
-
-        <!-- FLOATING BADGE 1 -->
-        <div class="absolute -left-6 top-1/4 hidden lg:flex items-center gap-3 p-4 rounded-2xl bg-slate-900/95 border border-slate-800 shadow-2xl backdrop-blur-xl animate-bounce-slow">
-          <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-white">Kecepatan Transaksi</p>
-            <p class="text-[11px] text-blue-400 font-extrabold">&lt; 1 Detik per Nota Struk</p>
-          </div>
-        </div>
-
-        <!-- FLOATING BADGE 2 -->
-        <div class="absolute -right-6 bottom-1/4 hidden lg:flex items-center gap-3 p-4 rounded-2xl bg-slate-900/95 border border-slate-800 shadow-2xl backdrop-blur-xl animate-pulse-slow">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-white">Tanpa Biaya Bulanan</p>
-            <p class="text-[11px] text-emerald-400 font-extrabold">Bayar 1x Pakai Selamanya</p>
-          </div>
-        </div>
-
       </div>
 
     </div>
   </section>
 
-  <!-- STATS NUMBERS SECTION -->
-  <section class="py-12 bg-slate-900/60 border-y border-slate-800/80">
+  <!-- FITUR UNGGULAN SECTION (FROSTED LIGHT GLASS CARDS) -->
+  <section id="fitur" class="py-20 relative z-10 border-t border-blue-100/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        
-        <div class="space-y-1">
-          <p class="text-3xl sm:text-4xl font-extrabold text-blue-400">100%</p>
-          <p class="text-xs sm:text-sm font-medium text-slate-400">Offline & Akses Cepat</p>
-        </div>
 
-        <div class="space-y-1">
-          <p class="text-3xl sm:text-4xl font-extrabold text-blue-400">Rp 0</p>
-          <p class="text-xs sm:text-sm font-medium text-slate-400">Biaya Langganan Bulanan</p>
+      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
+          <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          <span>DITERAPKAN KHUSUS UMKM INDONESIA</span>
         </div>
-
-        <div class="space-y-1">
-          <p class="text-3xl sm:text-4xl font-extrabold text-blue-400">58 & 80mm</p>
-          <p class="text-xs sm:text-sm font-medium text-slate-400">Support Thermal ESC/POS</p>
-        </div>
-
-        <div class="space-y-1">
-          <p class="text-3xl sm:text-4xl font-extrabold text-blue-400">10.000+</p>
-          <p class="text-xs sm:text-sm font-medium text-slate-400">Produk Mampu Ditampung</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- DOWNLOAD SECTION (DEDICATED SECTION) -->
-  <section id="unduh" class="py-16 md:py-24 relative bg-slate-950 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
-      <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold">
-          <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-          <span>UNDUH APPS DESKTOP TERBARU</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Download Installer WarungPOS (.exe)</h2>
-        <p class="text-slate-400 text-sm sm:text-base font-medium">Dapatkan versi rilis terbaru untuk komputer atau laptop Windows toko Anda. Siap pakai 100% offline.</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Segala Yang Anda Butuhkan Untuk Kelola Kasir Toko
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base font-medium">
+          Dapatkan kontrol penuh atas persediaan stok, transaksi kasir, dan laporan keuangan toko Anda tanpa perlu
+          terkoneksi internet.
+        </p>
       </div>
 
-      <!-- MAIN DOWNLOAD CARD -->
-      <div class="max-w-4xl mx-auto rounded-3xl bg-slate-900/90 border border-slate-800 p-8 sm:p-12 shadow-2xl relative overflow-hidden backdrop-blur-xl">
-        <!-- Ambient Glow -->
-        <div class="absolute -top-24 -right-24 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      <!-- 4 FITUR CARDS GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
-          
-          <!-- LEFT INFO -->
-          <div class="md:col-span-7 space-y-5 text-left">
-            <div class="flex items-center gap-3 flex-wrap">
-              <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-bold flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                <span>Rilis Resmi Terverifikasi</span>
-              </span>
-              <span class="px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full text-xs font-bold">
-                Versi: <span class="version-text">v2.0.4</span>
-              </span>
+        <!-- FITUR 1 -->
+        <div class="glass-card-light rounded-3xl p-6 space-y-4 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-600/30">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                </path>
+              </svg>
             </div>
-
-            <h3 class="text-2xl sm:text-3xl font-extrabold text-white">WarungPOS Desktop App</h3>
-            
-            <p class="text-slate-300 text-sm leading-relaxed font-medium">
-              Installer otomatis (.exe) untuk sistem operasi Windows. Dilengkapi backend API bawaan, sistem lisensi permanen, printer thermal ESC/POS, dan dukungan backup data 1-klik.
+            <h3 class="text-lg font-extrabold text-slate-900">100% Offline Tanpa Internet</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">
+              Aplikasi berjalan mandiri di komputer kasir Anda. Tidak ada komplain transaksi macet akibat sinyal lemot
+              atau koneksi internet mati.
             </p>
-
-            <div class="grid grid-cols-2 gap-4 text-xs font-semibold text-slate-400 pt-2">
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                <span>Windows 10 / 11 (64-bit)</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path></svg>
-                <span>Ukuran File: <span class="file-size-text">~113 MB</span></span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                <span>100% Bebas Virus & Malware</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                <span>Tanggal Rilis: <span class="release-date-text">Agustus 2026</span></span>
-              </div>
-            </div>
           </div>
-
-          <!-- RIGHT CTA -->
-          <div class="md:col-span-5 flex flex-col items-center justify-center p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-4 text-center">
-            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white flex items-center justify-center shadow-lg shadow-blue-500/30">
-              <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-            </div>
-
-            <div>
-              <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Siap Pasang di Komputer Toko</p>
-              <p class="text-xs text-blue-400 font-bold mt-0.5">Warung POS Setup (<span class="version-text">v2.0.4</span>)</p>
-            </div>
-
-            <a href="#" class="btn-download-exe w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-extrabold text-sm transition-all shadow-xl shadow-blue-600/40 hover:shadow-blue-500/60 hover:-translate-y-0.5 flex items-center justify-center gap-2">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-              <span>Unduh Installer .exe</span>
-            </a>
-
-            <a href="https://github.com/hakkuryuu7z/pos-umkm-offline/releases" target="_blank" class="text-[11px] text-slate-400 hover:text-blue-400 font-semibold underline underline-offset-2 transition">
-              Lihat Seluruh Rilis di GitHub &rarr;
-            </a>
-          </div>
-
-        </div>
-
-        <!-- 3-STEP INSTALLATION GUIDE -->
-        <div class="mt-10 border-t border-slate-800 pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
-          <div class="p-4 rounded-2xl bg-slate-950/50 border border-slate-800/80 flex items-start gap-3">
-            <span class="w-7 h-7 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-xs font-black shrink-0">1</span>
-            <div>
-              <p class="text-xs font-bold text-white">Unduh File .exe</p>
-              <p class="text-[11px] text-slate-400 font-medium mt-0.5">Klik tombol unduh installer versi terbaru di atas ke PC toko Anda.</p>
-            </div>
-          </div>
-          <div class="p-4 rounded-2xl bg-slate-950/50 border border-slate-800/80 flex items-start gap-3">
-            <span class="w-7 h-7 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-xs font-black shrink-0">2</span>
-            <div>
-              <p class="text-xs font-bold text-white">Jalankan Setup</p>
-              <p class="text-[11px] text-slate-400 font-medium mt-0.5">Buka file `Warung POS Setup.exe` dan ikuti wizard pemasangan mudah.</p>
-            </div>
-          </div>
-          <div class="p-4 rounded-2xl bg-slate-950/50 border border-slate-800/80 flex items-start gap-3">
-            <span class="w-7 h-7 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-xs font-black shrink-0">3</span>
-            <div>
-              <p class="text-xs font-bold text-white">Siap Digunakan 100% Offline</p>
-              <p class="text-[11px] text-slate-400 font-medium mt-0.5">Aktivasi HWID dan aplikasi kasir langsung dapat dioperasikan tanpa internet.</p>
-            </div>
+          <div class="pt-4 border-t border-slate-100 text-[11px] text-blue-700 font-bold flex items-center gap-1">
+            <span>✓ Data Aman di Harddisk Toko</span>
           </div>
         </div>
 
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FITUR UNGGULAN (6 PILLARS) -->
-  <section id="fitur" class="py-20 md:py-32 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-        <h2 class="text-xs font-bold text-blue-400 uppercase tracking-widest">Fitur Unggulan</h2>
-        <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Didesain Khusus Menjawab Kebutuhan Toko & UMKM Real</p>
-        <p class="text-slate-400 text-sm sm:text-base font-medium">Semua alat yang Anda butuhkan untuk mempercepat kasir, merapikan variasi barang, dan memantau keuntungan harian.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <!-- CARD 1 -->
-        <div class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">100% Offline & Anti-Lemu</h3>
-          <p class="text-slate-400 text-sm leading-relaxed font-medium">Operasional toko berjalan 24/7 tanpa perlu koneksi internet. Tidak perlu khawatir koneksi mati atau server down saat antrean panjang.</p>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m-8-10l8-4m-8 4v10l8 4m0-10L4 7"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Master Variasi & Multi-Satuan</h3>
-          <p class="text-slate-400 text-sm leading-relaxed font-medium">Jual barang dalam Pcs, Dus, Pack, atau Bal sekaligus. Sistem menghitung konversi isi & stok otomatis tanpa membuat input barang ganda.</p>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-sky-500/10 text-sky-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-4H9a2 2 0 00-2 2v10a2 2 0 002 2h6a2 2 0 002-2V5a2 2 0 00-2-2zm-6 14h.01"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Cetak Struk ESC/POS Instan</h3>
-          <p class="text-slate-400 text-sm leading-relaxed font-medium">Mendukung printer thermal 58mm & 80mm via USB / LAN. Dilengkapi 3 pilihan template struk: **Klasik, Modern, & Minimalis** dengan logo toko Anda.</p>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Grafik Laba-Rugi Realtime</h3>
-          <p class="text-slate-400 text-sm leading-relaxed font-medium">Pantau omset harian, grafik tren penjualan 7 hari, keuntungan bersih per nota, serta top 5 produk paling laris dalam sekejap.</p>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Notifikasi Lonceng Stok Kritis</h3>
-          <p class="text-slate-400 text-sm leading-relaxed font-medium">Icon lonceng pintar di header atas langsung memberi tahu barang mana yang sisa sedikit (<=10 pcs) agar Anda bisa re-stock tepat waktu.</p>
-        </div>
-
-        <!-- CARD 6 -->
-        <div class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 group">
-          <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2m-8 0h8m0 0v8a2 2 0 01-2 2H10a2 2 0 01-2-2V7m8 0H8"></path></svg>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Backup & Import Database 1-Klik</h3>
-          <p class="text-slate-400 text-sm leading-relaxed font-medium">Cadangkan database toko Anda secara aman ke file lokal atau import data barang massal via Excel dalam sekali klik.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- INTERACTIVE UMKM PROFIT CALCULATOR SECTION -->
-  <section id="kalkulator" class="py-20 bg-slate-900/90 border-y border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <!-- TEXT INFO -->
-        <div class="lg:col-span-5 space-y-6">
-          <span class="text-xs font-bold text-blue-400 uppercase tracking-widest">Kalkulator Potensi UMKM</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">Hitung Estimasi Waktu & Profit Yang Bisa Ditingkatkan</h2>
-          <p class="text-slate-400 text-sm sm:text-base leading-relaxed font-medium">
-            Dengan beralih dari pencatatan manual/buku ke **WarungPOS**, Anda menghemat hingga 2 jam per hari dalam pencatatan stok & rekap nota, serta mencegah kebocoran kasir.
-          </p>
-          
-          <div class="space-y-3 pt-2">
-            <div class="flex items-center gap-3 text-slate-300 text-sm font-semibold">
-              <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs">✓</span>
-              <span>Cegah kesalahan hitung uang kembalian</span>
+        <!-- FITUR 2 -->
+        <div class="glass-card-light rounded-3xl p-6 space-y-4 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-600/30">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+              </svg>
             </div>
-            <div class="flex items-center gap-3 text-slate-300 text-sm font-semibold">
-              <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs">✓</span>
-              <span>Laporan omset otomatis tercatat otomatis</span>
-            </div>
-            <div class="flex items-center gap-3 text-slate-300 text-sm font-semibold">
-              <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs">✓</span>
-              <span>Cetak struk belanja terlihat lebih profesional</span>
-            </div>
+            <h3 class="text-lg font-extrabold text-slate-900">Multi-Satuan & Barcode</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">
+              Jual grosir & eceran dalam 1 produk (PCS, DUS, PACK). Konversi stok otomatis & pembacaan barcode scanner
+              instan tanpa salah input.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 text-[11px] text-blue-700 font-bold flex items-center gap-1">
+            <span>✓ Konversi Stok Otomatis</span>
           </div>
         </div>
 
-        <!-- INTERACTIVE WIDGET CARD -->
-        <div class="lg:col-span-7">
-          <div class="p-8 sm:p-10 rounded-3xl bg-slate-950 border border-slate-800 shadow-2xl space-y-8">
-            <h3 class="text-xl font-bold text-white flex items-center gap-2">
-              <span>🧮 Simulasi Efisiensi Toko Anda</span>
-            </h3>
-
-            <!-- SLIDER 1: TRANSAKSI HARIAN -->
-            <div class="space-y-3">
-              <div class="flex justify-between text-sm font-bold">
-                <span class="text-slate-300">Rata-rata Transaksi per Hari:</span>
-                <span id="calc-trans-val" class="text-blue-400 text-base font-extrabold">60 Nota</span>
-              </div>
-              <input type="range" id="calc-trans" min="10" max="300" step="5" value="60"
-                class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500">
+        <!-- FITUR 3 -->
+        <div class="glass-card-light rounded-3xl p-6 space-y-4 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-600/30">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 17h2a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-4H9a2 2 0 00-2 2v10a2 2 0 002 2h6a2 2 0 002-2V5a2 2 0 00-2-2zm-6 14h.01">
+                </path>
+              </svg>
             </div>
+            <h3 class="text-lg font-extrabold text-slate-900">Cetak Struk ESC/POS Instan</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">
+              Support printer thermal 58mm & 80mm via USB / Bluetooth. Cetak struk nota belanja instan kurang dari 1
+              detik dengan header & footer toko custom.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 text-[11px] text-blue-700 font-bold flex items-center gap-1">
+            <span>✓ Support Semua Printer Thermal</span>
+          </div>
+        </div>
 
-            <!-- SLIDER 2: NOMINAL RATA-RATA HARGA NOTA -->
-            <div class="space-y-3">
-              <div class="flex justify-between text-sm font-bold">
-                <span class="text-slate-300">Rata-rata Belanja per Nota:</span>
-                <span id="calc-basket-val" class="text-blue-400 text-base font-extrabold">Rp 35.000</span>
-              </div>
-              <input type="range" id="calc-basket" min="5000" max="200000" step="5000" value="35000"
-                class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500">
+        <!-- FITUR 4 -->
+        <div class="glass-card-light rounded-3xl p-6 space-y-4 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-600/30">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                </path>
+              </svg>
             </div>
-
-            <!-- RESULT DISPLAY -->
-            <div class="p-6 rounded-2xl bg-gradient-to-r from-blue-950/80 to-indigo-950/80 border border-blue-800/50 grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
-              <div>
-                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Estimasi Omset Bulanan</p>
-                <p id="calc-omset-res" class="text-2xl sm:text-3xl font-extrabold text-blue-300 mt-1">Rp 63.000.000</p>
-              </div>
-
-              <div>
-                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Estimasi Waktu Dihemat</p>
-                <p id="calc-time-res" class="text-2xl sm:text-3xl font-extrabold text-emerald-400 mt-1">60 Jam / Bulan</p>
-              </div>
-            </div>
-
+            <h3 class="text-lg font-extrabold text-slate-900">Laporan Laba Rugi Otomatis</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">
+              Pantau omset harian, produk paling laris, margin keuntungan bersih, dan rekapitulasi kasir shift secara
+              otomatis & eksport ke Excel PDF.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 text-[11px] text-blue-700 font-bold flex items-center gap-1">
+            <span>✓ Export File Excel / PDF</span>
           </div>
         </div>
 
@@ -649,134 +399,265 @@
     </div>
   </section>
 
-  <!-- PRICING PACKAGES SECTION -->
-  <section id="harga" class="py-20 md:py-32 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-        <h2 class="text-xs font-bold text-blue-400 uppercase tracking-widest">Harga & Lisensi</h2>
-        <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Investasi Sekali, Untung Selamanya</p>
-        <p class="text-slate-400 text-sm sm:text-base font-medium">Pilih paket lisensi yang sesuai dengan skala bisnis toko Anda. Tanpa biaya tersembunyi.</p>
+  <!-- KALKULATOR UMKM SECTION (INTERACTIVE SLIDERS GLASS LIGHT) -->
+  <section id="kalkulator" class="py-20 relative z-10 border-t border-blue-100/60">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div
+        class="glass-card-light rounded-3xl p-8 sm:p-12 space-y-8 border border-blue-100 shadow-2xl relative overflow-hidden">
+
+        <!-- HEADER KALKULATOR -->
+        <div class="text-center space-y-3 max-w-2xl mx-auto">
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
+            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+              </path>
+            </svg>
+            <span>SIMULASI KEUNTUNGAN TOKO</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Kalkulator Penghematan Waktu & Profit UMKM</h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium">Geser slider di bawah untuk melihat estimasi omset
+            bulanan & total waktu kasir yang bisa dihemat dengan WarungPOS.</p>
+        </div>
+
+        <!-- SLIDER INPUTS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 bg-white/90 p-6 rounded-2xl border border-blue-100 shadow-xs">
+
+          <div class="space-y-3">
+            <div class="flex justify-between items-center text-sm font-bold">
+              <span class="text-slate-800">Transaksi Nota / Hari:</span>
+              <span id="calc-trans-val" class="text-blue-600 text-base font-extrabold">60 Nota / hari</span>
+            </div>
+            <input type="range" id="calc-trans" min="10" max="300" value="60"
+              class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-400 font-bold">
+              <span>10 Nota</span>
+              <span>300 Nota</span>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex justify-between items-center text-sm font-bold">
+              <span class="text-slate-800">Rata-rata Belanja per Nota:</span>
+              <span id="calc-basket-val" class="text-blue-600 text-base font-extrabold">Rp 35.000</span>
+            </div>
+            <input type="range" id="calc-basket" min="5000" max="200000" step="5000" value="35000"
+              class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-400 font-bold">
+              <span>Rp 5.000</span>
+              <span>Rp 200.000</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RESULT OUTPUT CARDS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+          <div
+            class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-center space-y-2 text-white shadow-xl">
+            <span class="text-xs uppercase tracking-wider font-extrabold text-blue-100">Estimasi Omset Bulanan</span>
+            <div class="text-3xl sm:text-4xl font-black" id="calc-omset-res">Rp 63.000.000</div>
+            <p class="text-[11px] text-blue-200 font-medium">Berdasarkan 30 hari operasional toko secara konsisten</p>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-6 text-center space-y-2 text-white shadow-xl">
+            <span class="text-xs uppercase tracking-wider font-extrabold text-emerald-100">Waktu Efisiensi Kasir
+              Dihemat</span>
+            <div class="text-3xl sm:text-4xl font-black" id="calc-time-res">60 Jam / Bulan</div>
+            <p class="text-[11px] text-emerald-200 font-medium">Bisa dialokasikan untuk istirahat atau kembangkan usaha
+            </p>
+          </div>
+
+        </div>
+
       </div>
 
+    </div>
+  </section>
+
+  <!-- PILIHAN PAKET LISENSI SECTION -->
+  <section id="harga" class="py-20 relative z-10 border-t border-blue-100/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <div
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
+          <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+            </path>
+          </svg>
+          <span>INVESTASI SEKALI BAYAR - LISENSI PERMANEN</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Pilih Paket Sesuai Kebutuhan Toko Anda
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base font-medium">
+          Tanpa biaya bulanan, tanpa biaya tahunan, tanpa potongan komisi transaksi. 100% lisensi milik Anda seumur
+          hidup.
+        </p>
+      </div>
+
+      <!-- PRICING CARDS GRID -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-        
+
         <!-- PAKET STARTER -->
-        <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition">
+        <div class="glass-card-light rounded-3xl p-8 flex flex-col justify-between space-y-8">
           <div class="space-y-6">
-            <div>
-              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Paket Starter</span>
-              <h3 class="text-2xl font-extrabold text-white mt-1">1 Toko / PC</h3>
-              <p class="text-slate-400 text-xs mt-1 font-medium">Cocok untuk toko kelontong atau kios tunggal.</p>
+            <div class="space-y-2">
+              <span
+                class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200">PAKET
+                STARTER</span>
+              <h3 class="text-2xl font-extrabold text-slate-900 pt-2">Mode trial 3 bulan</h3>
+              <p class="text-xs text-slate-500 font-medium">Cocok untuk testing software sebelum membeli lisensi
+                permanen.
+              </p>
             </div>
-
-            <div class="py-2">
-              <span class="text-4xl font-extrabold text-white">Rp 499.000</span>
-              <span class="text-xs text-slate-400 font-medium block mt-1">Lisensi Permanen (Lifetime)</span>
+            <div class="pt-2">
+              <div class="text-3xl sm:text-4xl font-extrabold text-slate-900">Rp 500.000 </div>
+              <span class="text-xs text-blue-600 font-bold">Lisensi Trial 3 Bulan 1 Device Kasir</span>
             </div>
-
-            <ul class="space-y-3 text-xs text-slate-300 font-medium border-t border-slate-800 pt-6">
+            <ul class="space-y-3 text-xs text-slate-700 font-semibold border-t border-slate-100 pt-6">
               <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Lisensi 1 Device Komputer / Laptop</span>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>100% Offline Tanpa Internet</span>
               </li>
               <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Fitur Kasir POS Offline Lengkap</span>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Master Stok Multi-Satuan</span>
               </li>
               <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Support Cetak Thermal 58mm / 80mm</span>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Cetak Struk Thermal Printer</span>
               </li>
               <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Gratis Panduan Installasi</span>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Backup & Restore Database Lokal</span>
               </li>
             </ul>
           </div>
-
-          <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20mau%20order%20Paket%20Starter%20WarungPOS" target="_blank"
-            class="w-full mt-8 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs text-center transition">Pilih Starter</a>
+          <a href="https://wa.me/62895321742593?text=Order%20Paket%20Starter%20WarungPOS" target="_blank"
+            class="w-full text-center py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md">
+            PESAN PAKET STARTER
+          </a>
         </div>
 
-        <!-- PAKET PRO UMKM (BEST SELLER) -->
-        <div class="p-8 rounded-3xl bg-slate-900 border-2 border-blue-500 relative flex flex-col justify-between shadow-2xl shadow-blue-600/20">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest shadow-md">
-            RECOMMENDED FOR UMKM
+        <!-- PAKET PRO (FEATURED BLUE GLASS) -->
+        <div
+          class="glass-card-light rounded-3xl p-8 flex flex-col justify-between space-y-8 relative border-2 border-blue-500 shadow-2xl shadow-blue-500/20 bg-gradient-to-b from-blue-50/90 to-white/90">
+          <div
+            class="absolute -top-3.5 right-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-widest shadow-md">
+            PALING POPULER
           </div>
-
           <div class="space-y-6">
-            <div>
-              <span class="text-xs font-bold text-blue-400 uppercase tracking-widest">Paket Pro UMKM</span>
-              <h3 class="text-2xl font-extrabold text-white mt-1">Multi-Device & Custom</h3>
-              <p class="text-slate-400 text-xs mt-1 font-medium">Paling diminati untuk minimarket & toko dengan banyak variasi.</p>
+            <div class="space-y-2">
+              <span
+                class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-extrabold border border-blue-300">PAKET
+                PRO BUSINESS</span>
+              <h3 class="text-2xl font-extrabold text-slate-900 pt-2">Toko professional</h3>
+              <p class="text-xs text-slate-600 font-medium">Pilihan hemat untuk jangka panjang.
+              </p>
             </div>
-
-            <div class="py-2">
-              <span class="text-4xl font-extrabold text-white">Rp 899.000</span>
-              <span class="text-xs text-blue-400 font-medium block mt-1">Lisensi Permanen + Bonus Update</span>
+            <div class="pt-2">
+              <div class="text-3xl sm:text-4xl font-extrabold text-blue-600">Rp 2.000.000</div>
+              <span class="text-xs text-blue-700 font-bold">Lisensi Permanen (Life time)</span>
             </div>
-
-            <ul class="space-y-3 text-xs text-slate-300 font-medium border-t border-slate-800 pt-6">
-              <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Lisensi Hingga 3 Komputer / Laptop</span>
+            <ul class="space-y-3 text-xs text-slate-800 font-semibold border-t border-blue-200/60 pt-6">
+              <li class="flex items-center gap-2.5 font-bold text-blue-700">
+                <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Semua Fitur Paket Starter</span>
               </li>
               <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Master Variasi Multi-Satuan (Dus, Pack, Pcs)</span>
+                <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Lisensi permanen</span>
               </li>
               <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Custom Header Logo Struk Pembayaran</span>
+                <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>On site installer by team</span>
               </li>
               <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Bantuan Remote Installasi via AnyDesk</span>
-              </li>
-              <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Bebas Konsultasi Prioritas WhatsApp</span>
+                <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Priority Technical Support 24/7</span>
               </li>
             </ul>
           </div>
-
-          <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20mau%20order%20Paket%20Pro%20UMKM%20WarungPOS" target="_blank"
-            class="w-full mt-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs text-center transition shadow-lg shadow-blue-600/30">Order Paket Pro (Rekomendasi)</a>
+          <a href="https://wa.me/62895321742593?text=Order%20Paket%20Pro%20WarungPOS" target="_blank"
+            class="w-full text-center py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold text-xs uppercase tracking-wider transition-all shadow-lg shadow-blue-600/40">
+            PESAN PAKET PRO NOW
+          </a>
         </div>
 
-        <!-- PAKET FRANCHISE / CUSTOM -->
-        <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition">
+        <!-- PAKET ENTERPRISE -->
+        <div class="glass-card-light rounded-3xl p-8 flex flex-col justify-between space-y-8">
           <div class="space-y-6">
-            <div>
-              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Paket Franchise</span>
-              <h3 class="text-2xl font-extrabold text-white mt-1">Multi-Cabang & Custom</h3>
-              <p class="text-slate-400 text-xs mt-1 font-medium">Kebutuhan bisnis cabang / franchise khusus.</p>
+            <div class="space-y-2">
+              <span
+                class="px-3 py-1 rounded-full bg-purple-50 text-purple-700 text-xs font-extrabold border border-purple-200">PAKET
+                ENTERPRISE</span>
+              <h3 class="text-2xl font-extrabold text-slate-900 pt-2">Exclusive Enterprise</h3>
+              <p class="text-xs text-slate-500 font-medium">Penyesuaian untuk kebutuhan bisnis Anda.</p>
             </div>
-
-            <div class="py-2">
-              <span class="text-4xl font-extrabold text-white">Hubungi Kami</span>
-              <span class="text-xs text-slate-400 font-medium block mt-1">Penawaran Kustom Berdasarkan Kebutuhan</span>
+            <div class="pt-2">
+              <div class="text-3xl sm:text-4xl font-extrabold text-slate-900">Custom</div>
+              <span class="text-xs text-blue-600 font-bold">Build for your business</span>
             </div>
-
-            <ul class="space-y-3 text-xs text-slate-300 font-medium border-t border-slate-800 pt-6">
+            <ul class="space-y-3 text-xs text-slate-700 font-semibold border-t border-slate-100 pt-6">
               <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Lisensi Unlimited Cabang Toko</span>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>++++++</span>
               </li>
               <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Integrasi Database Terpusat</span>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Fitur By Request</span>
               </li>
               <li class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                <span>Custom Fitur Sesuai Workflow Toko</span>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Pendampingan Setup Hardware On-Site</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Dukungan langsung dari developer</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>SLA Support VIP 99.9%</span>
               </li>
             </ul>
           </div>
-
-          <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20diskusi%20Paket%20Franchise%20Custom" target="_blank"
-            class="w-full mt-8 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs text-center transition">Konsultasi Enterprise</a>
+          <a href="https://wa.me/62895321742593?text=Order%20Paket%20Enterprise%20WarungPOS" target="_blank"
+            class="w-full text-center py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md">
+            KONSULTASI ENTERPRISE
+          </a>
         </div>
 
       </div>
@@ -784,54 +665,85 @@
     </div>
   </section>
 
-  <!-- FAQ ACCORDION SECTION -->
-  <section id="faq" class="py-20 bg-slate-900/60 border-t border-slate-800">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center space-y-4 mb-14">
-        <h2 class="text-xs font-bold text-blue-400 uppercase tracking-widest">FAQ</h2>
-        <p class="text-3xl font-extrabold text-white">Pertanyaan Sering Diajukan</p>
+  <!-- FAQ SECTION -->
+  <section id="faq" class="py-20 relative z-10 border-t border-blue-100/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+      <div class="text-center space-y-3">
+        <div
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
+          <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+            </path>
+          </svg>
+          <span>FREQUENTLY ASKED QUESTIONS</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Pertanyaan Umum Seputar WarungPOS
+        </h2>
       </div>
 
       <div class="space-y-4">
-        
-        <div class="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden">
-          <button class="w-full p-6 text-left font-bold text-white text-base flex justify-between items-center faq-toggle">
-            <span>Apakah benar aplikasi ini 100% tanpa biaya bulanan?</span>
-            <svg class="w-5 h-5 text-blue-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+
+        <div class="glass-card-light rounded-2xl overflow-hidden">
+          <button
+            class="w-full p-6 text-left font-bold text-slate-900 text-base flex justify-between items-center faq-toggle">
+            <span>Apakah aplikasi WarungPOS benar-benar 100% offline tanpa internet?</span>
+            <svg class="w-5 h-5 text-blue-600 transform transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
           </button>
-          <div class="px-6 pb-6 text-sm text-slate-400 font-medium hidden">
-            Ya, benar sekali! Anda hanya perlu membeli lisensi 1x saja dan aplikasi dapat digunakan selamanya (Lifetime). Tidak ada biaya langganan bulanan maupun tahunan.
+          <div class="px-6 pb-6 text-sm text-slate-600 font-medium hidden border-t border-blue-100 pt-4">
+            Ya, 100% offline! Seluruh database produk, transaksi, dan laporan disimpan secara aman di harddisk komputer
+            kasir Anda. Anda tidak memerlukan koneksi internet untuk mengoperasikan toko sehari-hari.
           </div>
         </div>
 
-        <div class="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden">
-          <button class="w-full p-6 text-left font-bold text-white text-base flex justify-between items-center faq-toggle">
-            <span>Printer thermal merk apa saja yang bisa digunakan?</span>
-            <svg class="w-5 h-5 text-blue-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        <div class="glass-card-light rounded-2xl overflow-hidden">
+          <button
+            class="w-full p-6 text-left font-bold text-slate-900 text-base flex justify-between items-center faq-toggle">
+            <span>Apakah ada biaya langganan bulanan atau tahunan?</span>
+            <svg class="w-5 h-5 text-blue-600 transform transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
           </button>
-          <div class="px-6 pb-6 text-sm text-slate-400 font-medium hidden">
-            WarungPOS mendukung hampir seluruh merk thermal printer standar pasar (Epson, Kassen, Panda, Bluetooth/USB Thermal 58mm & 80mm) yang mendukung perintah cetak ESC/POS standar.
+          <div class="px-6 pb-6 text-sm text-slate-600 font-medium hidden border-t border-blue-100 pt-4">
+            Tidak ada! Lisensi WarungPOS bersifat sekali bayar (lifetime license). Anda cukup membeli sekali dan
+            aplikasi dapat digunakan selamanya tanpa khawatir biaya perpanjangan.
           </div>
         </div>
 
-        <div class="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden">
-          <button class="w-full p-6 text-left font-bold text-white text-base flex justify-between items-center faq-toggle">
-            <span>Bagaimana jika laptop atau komputer toko saya rusak?</span>
-            <svg class="w-5 h-5 text-blue-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        <div class="glass-card-light rounded-2xl overflow-hidden">
+          <button
+            class="w-full p-6 text-left font-bold text-slate-900 text-base flex justify-between items-center faq-toggle">
+            <span>Printer thermal merk apa saja yang didukung oleh WarungPOS?</span>
+            <svg class="w-5 h-5 text-blue-600 transform transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
           </button>
-          <div class="px-6 pb-6 text-sm text-slate-400 font-medium hidden">
-            Aplikasi menyediakan fitur **Backup Database 1-Klik**. Anda bisa memindahkan file backup ke komputer baru, dan tim support kami akan membantu mereset kunci lisensi ke perangkat baru Anda tanpa biaya tambahan.
+          <div class="px-6 pb-6 text-sm text-slate-600 font-medium hidden border-t border-blue-100 pt-4">
+            WarungPOS mendukung seluruh printer thermal bertipe ESC/POS ukuran 58mm maupun 80mm yang terhubung via USB,
+            Bluetooth, maupun LAN (seperti Epson, Panda, Kassen, Iware, Eppos, dll).
           </div>
         </div>
 
-        <div class="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden">
-          <button class="w-full p-6 text-left font-bold text-white text-base flex justify-between items-center faq-toggle">
-            <span>Apakah bisa kelola variasi barang yang dijual grosir & eceran?</span>
-            <svg class="w-5 h-5 text-blue-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        <div class="glass-card-light rounded-2xl overflow-hidden">
+          <button
+            class="w-full p-6 text-left font-bold text-slate-900 text-base flex justify-between items-center faq-toggle">
+            <span>Apakah bisa mengelola produk yang dijual grosir & eceran sekaligus?</span>
+            <svg class="w-5 h-5 text-blue-600 transform transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
           </button>
-          <div class="px-6 pb-6 text-sm text-slate-400 font-medium hidden">
-            Sangat bisa! Fitur Master Produk WarungPOS memungkinkan 1 produk memiliki banyak variasi satuan (seperti PCS, DUS, PACK) lengkap dengan perbandingan konversi isi. Stok utama akan terpotong secara otomatis secara akurat.
+          <div class="px-6 pb-6 text-sm text-slate-600 font-medium hidden border-t border-blue-100 pt-4">
+            Sangat bisa! Fitur Master Produk WarungPOS memungkinkan 1 produk memiliki banyak variasi satuan (seperti
+            PCS, DUS, PACK) lengkap dengan perbandingan konversi isi. Stok utama akan terpotong secara otomatis secara
+            akurat.
           </div>
         </div>
 
@@ -840,46 +752,91 @@
     </div>
   </section>
 
-  <!-- CTA CLOSING BANNER -->
-  <section class="py-20 relative overflow-hidden">
+  <!-- DOWNLOAD INSTALLER SECTION -->
+  <section id="unduh" class="py-20 relative z-10 border-t border-blue-100/60">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="p-10 sm:p-16 rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-700 text-center relative overflow-hidden shadow-2xl">
-        <div class="relative z-10 space-y-6">
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Siap Tingkatkan Omset & Rapikan Kasir Toko Anda?</h2>
-          <p class="text-blue-100 text-sm sm:text-base max-w-xl mx-auto font-medium">Dapatkan software kasir POS offline paling stabil & mudah digunakan sekarang juga.</p>
+
+      <div
+        class="glass-card-light rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl border border-blue-200">
+        <div class="space-y-6 max-w-2xl mx-auto relative z-10">
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
+            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+              </path>
+            </svg>
+            <span>DUKUNGAN SISTEM OPERASI WINDOWS</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Siap Tingkatkan Omset & Rapikan Kasir Toko Anda?
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base font-medium">
+            Unduh file installer resmi WarungPOS (.exe) v2.0.5 dan rasakan kemudahan mengelola kasir toko secara 100%
+            offline.
+          </p>
+
+          <div
+            class="p-4 rounded-2xl bg-white border border-blue-100 inline-flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-slate-700 shadow-xs">
+            <div>Versi Rilis: <span class="text-blue-600 font-extrabold version-text">v2.0.5</span></div>
+            <div>•</div>
+            <div>Tanggal: <span class="text-blue-600 font-extrabold release-date-text">26 Agustus 2026</span></div>
+            <div>•</div>
+            <div>Ukuran: <span class="text-blue-600 font-extrabold file-size-text">107.8 MB</span></div>
+          </div>
+
           <div class="pt-2">
-            <a href="https://wa.me/6281234567890?text=Halo%20Admin%20WarungPOS,%20saya%20siap%20pesan%20aplikasi%20kasir" target="_blank"
-              class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-white text-blue-700 font-extrabold text-base hover:bg-slate-100 transition-all shadow-xl hover:-translate-y-1">
-              <span>Konsultasi & Order via WhatsApp</span>
-              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            <a href="./downloads/WarungPOS-Setup-v2.0.5.exe"
+              class="btn-download-exe inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold text-base transition-all shadow-xl shadow-blue-600/30 hover:-translate-y-1">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+              </svg>
+              <span>Download Installer WarungPOS (.exe)</span>
             </a>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-slate-950 border-t border-slate-900 py-12 text-xs text-slate-500">
+  <footer class="bg-white border-t border-slate-200 py-12 text-xs text-slate-500 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+
       <div class="flex items-center gap-2">
-        <div class="w-6 h-6 rounded-lg bg-blue-600 text-white font-black text-xs flex items-center justify-center">W</div>
-        <span class="font-bold text-slate-300">WarungPOS Offline System</span>
+        <div class="w-6 h-6 rounded-lg bg-blue-600 text-white font-black text-xs flex items-center justify-center">W
+        </div>
+        <span class="font-bold text-slate-800">WarungPOS Offline System</span>
         <span>&copy; 2026 Hak Cipta Dilindungi.</span>
       </div>
 
       <div class="flex gap-6 font-semibold">
-        <a href="#fitur" class="hover:text-slate-300">Fitur</a>
-        <a href="#harga" class="hover:text-slate-300">Harga</a>
-        <a href="#faq" class="hover:text-slate-300">FAQ</a>
+        <a href="#fitur" class="hover:text-blue-600 transition-colors">Fitur</a>
+        <a href="#kalkulator" class="hover:text-blue-600 transition-colors">Kalkulator</a>
+        <a href="#harga" class="hover:text-blue-600 transition-colors">Harga</a>
+        <a href="#faq" class="hover:text-blue-600 transition-colors">FAQ</a>
+        <a href="./manual.html" class="text-blue-600 hover:text-blue-700 transition-colors flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+            </path>
+          </svg>
+          <span>Manual Book</span>
+        </a>
       </div>
+
     </div>
   </footer>
 
-  <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/6281234567890?text=Halo%20Admin%20WarungPOS" target="_blank" title="Tanya via WhatsApp"
-    class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-2xl shadow-emerald-500/50 hover:scale-110 transition-transform cursor-pointer">
-    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+  <!-- FLOATING WHATSAPP BUTTON GLASS -->
+  <a href="https://wa.me/62895321742593?text=Halo%20Admin%20WarungPOS" target="_blank" title="Tanya via WhatsApp"
+    class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-2xl shadow-emerald-500/50 hover:scale-110 transition-transform cursor-pointer border-2 border-white">
+    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+    </svg>
   </a>
 
   <!-- Script JS -->
