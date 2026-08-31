@@ -10,6 +10,10 @@
   <meta name="keywords"
     content="aplikasi kasir, pos umkm, software toko offline, program kasir sembako, cetak struk thermal, warungpos">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/logo_musang.png">
+  <link rel="apple-touch-icon" href="./assets/logo_musang.png">
+
   <!-- Open Graph / Meta Sosial -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="WarungPOS - Aplikasi Kasir POS Offline UMKM Indonesia">
@@ -26,7 +30,14 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -72,11 +83,8 @@
       <!-- LOGO BRAND -->
       <a href="#" class="flex items-center gap-3 group">
         <div
-          class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-blue-500 to-sky-400 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-all">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z">
-            </path>
-          </svg>
+          class="w-10 h-10 rounded-xl bg-white dark:bg-slate-900 p-1 flex items-center justify-center shadow-lg shadow-blue-500/15 border border-blue-100 dark:border-slate-800 group-hover:scale-105 group-hover:shadow-blue-500/25 transition-all">
+          <img src="./assets/logo_musang.png" alt="WarungPOS Logo" class="site-logo w-full h-full object-contain">
         </div>
         <div>
           <span class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1.5">
@@ -115,6 +123,19 @@
 
       <!-- CTA BUTTON HEADER -->
       <div class="hidden md:flex items-center gap-3">
+        <!-- THEME TOGGLE BUTTON DESKTOP -->
+        <button id="theme-toggle" type="button" aria-label="Toggle Dark Mode"
+          class="p-2.5 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 border border-slate-200 dark:border-slate-700 transition-all hover:scale-105 shadow-xs flex items-center justify-center group">
+          <svg class="w-5 h-5 theme-toggle-sun hidden text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg class="w-5 h-5 theme-toggle-moon text-slate-600 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+
         <a href="#harga"
           class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-bold text-sm transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 flex items-center gap-2">
           <span>Dapatkan Lisensi</span>
@@ -124,14 +145,28 @@
         </a>
       </div>
 
-      <!-- MOBILE MENU BUTTON -->
-      <button id="btn-mobile-menu"
-        class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none"
-        aria-label="Toggle Navigation">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+      <!-- MOBILE CONTROLS (THEME TOGGLE + MENU) -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button id="theme-toggle-mobile" type="button" aria-label="Toggle Dark Mode"
+          class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none">
+          <svg class="w-5 h-5 theme-toggle-sun hidden text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg class="w-5 h-5 theme-toggle-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+
+        <button id="btn-mobile-menu"
+          class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none"
+          aria-label="Toggle Navigation">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
 
     </div>
 
@@ -173,7 +208,7 @@
 
         <!-- BADGE TOP LIGHT GLASS -->
         <div
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/90 border border-blue-200/80 text-blue-700 text-xs font-extrabold shadow-sm backdrop-blur-md">
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/90 dark:bg-blue-950/80 border border-blue-200/80 dark:border-blue-800/80 text-blue-700 dark:text-blue-300 text-xs font-extrabold shadow-sm backdrop-blur-md">
           <svg class="w-4 h-4 text-blue-600 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
           </svg>
@@ -212,7 +247,7 @@
 
           <a href="https://wa.me/62895321742593?text=Halo%20Admin%20WarungPOS,%20saya%20tertarik%20dengan%20aplikasi%20kasir%20POS%20offline"
             target="_blank"
-            class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200/90 text-slate-800 font-bold text-base transition-all shadow-md hover:-translate-y-1 flex items-center justify-center gap-2.5">
+            class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200/90 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-bold text-base transition-all shadow-md hover:-translate-y-1 flex items-center justify-center gap-2.5">
             <svg class="w-6 h-6 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
               <path
                 d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
@@ -224,21 +259,21 @@
         <!-- TRUST BADGES UNDER HERO -->
         <div class="pt-6 flex flex-wrap justify-center items-center gap-4 text-xs text-slate-600 font-bold">
           <div
-            class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/80 border border-blue-100 shadow-xs backdrop-blur-md">
+            class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/80 dark:bg-slate-900/80 border border-blue-100 dark:border-slate-800 shadow-xs backdrop-blur-md">
             <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
             </svg>
             <span>100% Offline Tanpa Internet</span>
           </div>
           <div
-            class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/80 border border-blue-100 shadow-xs backdrop-blur-md">
+            class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/80 dark:bg-slate-900/80 border border-blue-100 dark:border-slate-800 shadow-xs backdrop-blur-md">
             <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
             </svg>
             <span>Lisensi Permanen (Lifetime)</span>
           </div>
           <div
-            class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/80 border border-blue-100 shadow-xs backdrop-blur-md">
+            class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/80 dark:bg-slate-900/80 border border-blue-100 dark:border-slate-800 shadow-xs backdrop-blur-md">
             <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
             </svg>
@@ -409,8 +444,8 @@
         <!-- HEADER KALKULATOR -->
         <div class="text-center space-y-3 max-w-2xl mx-auto">
           <div
-            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
-            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 text-xs font-bold">
+            <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
               </path>
@@ -423,15 +458,15 @@
         </div>
 
         <!-- SLIDER INPUTS -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 bg-white/90 p-6 rounded-2xl border border-blue-100 shadow-xs">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 bg-white/90 dark:bg-slate-900/90 p-6 rounded-2xl border border-blue-100 dark:border-slate-800 shadow-xs">
 
           <div class="space-y-3">
             <div class="flex justify-between items-center text-sm font-bold">
-              <span class="text-slate-800">Transaksi Nota / Hari:</span>
-              <span id="calc-trans-val" class="text-blue-600 text-base font-extrabold">60 Nota / hari</span>
+              <span class="text-slate-800 dark:text-slate-100">Transaksi Nota / Hari:</span>
+              <span id="calc-trans-val" class="text-blue-600 dark:text-blue-400 text-base font-extrabold">60 Nota / hari</span>
             </div>
             <input type="range" id="calc-trans" min="10" max="300" value="60"
-              class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+              class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-400 font-bold">
               <span>10 Nota</span>
               <span>300 Nota</span>
@@ -440,11 +475,11 @@
 
           <div class="space-y-3">
             <div class="flex justify-between items-center text-sm font-bold">
-              <span class="text-slate-800">Rata-rata Belanja per Nota:</span>
-              <span id="calc-basket-val" class="text-blue-600 text-base font-extrabold">Rp 35.000</span>
+              <span class="text-slate-800 dark:text-slate-100">Rata-rata Belanja per Nota:</span>
+              <span id="calc-basket-val" class="text-blue-600 dark:text-blue-400 text-base font-extrabold">Rp 35.000</span>
             </div>
             <input type="range" id="calc-basket" min="5000" max="200000" step="5000" value="35000"
-              class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+              class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-400 font-bold">
               <span>Rp 5.000</span>
               <span>Rp 200.000</span>
@@ -665,6 +700,75 @@
     </div>
   </section>
 
+  <!-- COMING SOON APK ANNOUNCEMENT SECTION -->
+  <section id="mobile-apk" class="py-16 relative z-10 border-t border-blue-100/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="glass-card-light rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-indigo-100 dark:border-slate-800 shadow-2xl bg-gradient-to-br from-white/90 via-blue-50/40 to-indigo-50/30 dark:from-slate-900/90 dark:via-slate-900/60 dark:to-slate-950/80">
+        
+        <!-- Ambient Decorative Glow -->
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+          
+          <!-- LEFT CONTENT -->
+          <div class="space-y-4 text-center lg:text-left max-w-2xl">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/80 text-xs font-bold shadow-xs">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-indigo-500"></span>
+              </span>
+              <span>PEMBERITAHUAN PENGEMBANGAN - COMING SOON</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+              Aplikasi WarungPOS Versi Android Mobile (.APK) Segera Hadir!
+            </h3>
+
+            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base font-medium leading-relaxed">
+              Kabar gembira untuk seluruh UMKM Indonesia! Tim WarungPOS saat ini sedang dalam tahap akhir pengembangan aplikasi <strong class="text-indigo-600 dark:text-indigo-400">WarungPOS Mobile Android (.apk)</strong>. Nantinya Anda dapat melakukan transaksi kasir portable dari HP Android & mencetak nota lewat printer thermal Bluetooth secara instan.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2 text-xs font-bold text-slate-700 dark:text-slate-300">
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-xs">
+                <svg class="w-4 h-4 text-indigo-500" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.552 0 .9997.4482.9997.9993s-.4477.9997-.9997.9997zm-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.552 0 .9997.4482.9997.9993s-.4477.9997-.9997.9997zm11.4045-6.02l1.9973-3.4592c.1537-.2662.0624-.6061-.2038-.7598-.2662-.1537-.6061-.0624-.7598.2038l-2.0223 3.503c-1.4645-.6682-3.1368-1.0441-4.8929-1.0441-1.7561 0-3.4284.3759-4.8929 1.0441l-2.0223-3.503c-.1537-.2662-.4936-.3575-.7598-.2038-.2662.1537-.3575.4936-.2038.7598l1.9973 3.4592c-3.1558 1.72-5.3093 4.9084-5.5907 8.6756h23.9442c-.2814-3.7672-2.4349-6.9556-5.5907-8.6756z"/></svg>
+                <span>Format File .APK (Android OS)</span>
+              </div>
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-xs">
+                <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path></svg>
+                <span>Printer Bluetooth Portable</span>
+              </div>
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-xs">
+                <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                <span>Kasir Smartphone dari HP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT ACTION CARD -->
+          <div class="w-full lg:w-auto shrink-0 flex flex-col items-center justify-center p-6 rounded-2xl bg-white/90 dark:bg-slate-900/90 border border-indigo-100 dark:border-slate-800 shadow-lg text-center space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400 flex items-center justify-center border border-indigo-100 dark:border-indigo-800 shadow-xs">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.552 0 .9997.4482.9997.9993s-.4477.9997-.9997.9997zm-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.552 0 .9997.4482.9997.9993s-.4477.9997-.9997.9997zm11.4045-6.02l1.9973-3.4592c.1537-.2662.0624-.6061-.2038-.7598-.2662-.1537-.6061-.0624-.7598.2038l-2.0223 3.503c-1.4645-.6682-3.1368-1.0441-4.8929-1.0441-1.7561 0-3.4284.3759-4.8929 1.0441l-2.0223-3.503c-.1537-.2662-.4936-.3575-.7598-.2038-.2662.1537-.3575.4936-.2038.7598l1.9973 3.4592c-3.1558 1.72-5.3093 4.9084-5.5907 8.6756h23.9442c-.2814-3.7672-2.4349-6.9556-5.5907-8.6756z"/></svg>
+            </div>
+            <div>
+              <div class="text-sm font-extrabold text-slate-900 dark:text-slate-100">Ingin Notifikasi Saat Rilis?</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Dapatkan kabar rilis versi APK via WA</p>
+            </div>
+            <a href="https://wa.me/62895321742593?text=Halo%20Admin%20WarungPOS,%20saya%20tertarik%20untuk%20dapatkan%20notifikasi%20saat%20WarungPOS%20Versi%20Android%20Mobile%20(.apk)%20rilis"
+              target="_blank"
+              class="w-full px-5 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold text-xs transition-all shadow-md shadow-indigo-600/30 hover:scale-105 flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              <span>Kabari Saya via WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ SECTION -->
   <section id="faq" class="py-20 relative z-10 border-t border-blue-100/60">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -711,8 +815,7 @@
             </svg>
           </button>
           <div class="px-6 pb-6 text-sm text-slate-600 font-medium hidden border-t border-blue-100 pt-4">
-            Tidak ada! Lisensi WarungPOS bersifat sekali bayar (lifetime license). Anda cukup membeli sekali dan
-            aplikasi dapat digunakan selamanya tanpa khawatir biaya perpanjangan.
+            Anda bisa menyesuaikan dengan paket yang ada beli!.
           </div>
         </div>
 
@@ -745,6 +848,18 @@
             PCS, DUS, PACK) lengkap dengan perbandingan konversi isi. Stok utama akan terpotong secara otomatis secara
             akurat.
           </div>
+        <div class="glass-card-light rounded-2xl overflow-hidden">
+          <button
+            class="w-full p-6 text-left font-bold text-slate-900 text-base flex justify-between items-center faq-toggle">
+            <span>Apakah WarungPOS akan tersedia untuk versi Android Mobile (.APK)?</span>
+            <svg class="w-5 h-5 text-blue-600 transform transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="px-6 pb-6 text-sm text-slate-600 font-medium hidden border-t border-blue-100 pt-4">
+            Ya, benar! Saat ini versi Windows Desktop (.exe) sudah rilis dan siap digunakan. Versi Android Mobile (.apk) sedang dalam tahap akhir pengembangan untuk mendukung kasir portable & printer Bluetooth.
+          </div>
         </div>
 
       </div>
@@ -760,8 +875,8 @@
         class="glass-card-light rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl border border-blue-200">
         <div class="space-y-6 max-w-2xl mx-auto relative z-10">
           <div
-            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
-            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 text-xs font-bold">
+            <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
               </path>
@@ -777,12 +892,12 @@
           </p>
 
           <div
-            class="p-4 rounded-2xl bg-white border border-blue-100 inline-flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-slate-700 shadow-xs">
-            <div>Versi Rilis: <span class="text-blue-600 font-extrabold version-text">v2.0.5</span></div>
+            class="p-4 rounded-2xl bg-white dark:bg-slate-900/90 border border-blue-100 dark:border-slate-800 inline-flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-slate-700 dark:text-slate-200 shadow-xs">
+            <div>Versi Rilis: <span class="text-blue-600 dark:text-blue-400 font-extrabold version-text">v2.0.5</span></div>
             <div>•</div>
-            <div>Tanggal: <span class="text-blue-600 font-extrabold release-date-text">26 Agustus 2026</span></div>
+            <div>Tanggal: <span class="text-blue-600 dark:text-blue-400 font-extrabold release-date-text">26 Agustus 2026</span></div>
             <div>•</div>
-            <div>Ukuran: <span class="text-blue-600 font-extrabold file-size-text">107.8 MB</span></div>
+            <div>Ukuran: <span class="text-blue-600 dark:text-blue-400 font-extrabold file-size-text">107.8 MB</span></div>
           </div>
 
           <div class="pt-2">
@@ -806,9 +921,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
 
       <div class="flex items-center gap-2">
-        <div class="w-6 h-6 rounded-lg bg-blue-600 text-white font-black text-xs flex items-center justify-center">W
+        <div class="w-7 h-7 rounded-lg bg-white dark:bg-slate-900 p-0.5 border border-slate-200 dark:border-slate-800 flex items-center justify-center shadow-xs">
+          <img src="./assets/logo_musang.png" alt="WarungPOS Logo" class="site-logo w-full h-full object-contain">
         </div>
-        <span class="font-bold text-slate-800">WarungPOS Offline System</span>
+        <span class="font-bold text-slate-800 dark:text-slate-200">WarungPOS Offline System</span>
         <span>&copy; 2026 Hak Cipta Dilindungi.</span>
       </div>
 

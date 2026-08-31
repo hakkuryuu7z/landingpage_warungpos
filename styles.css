@@ -147,3 +147,158 @@ input[type="range"]::-webkit-slider-thumb:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: #2563EB;
 }
+
+/* ==========================================================================
+   DARK THEME STYLES (Tailwind 'dark' class & Custom Glassmorphism Dark Mode)
+   ========================================================================== */
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #0B0F19;
+  color: #CBD5E1;
+}
+
+/* Glassmorphism Frosted Dark Container */
+html.dark .glass-card-light {
+  background: rgba(15, 23, 42, 0.75);
+  border-color: rgba(30, 41, 59, 0.8);
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(59, 130, 246, 0.2);
+}
+
+html.dark .glass-card-light:hover {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(59, 130, 246, 0.4);
+}
+
+/* Glass Header Dark Sticky Bar */
+html.dark .glass-navbar-light {
+  background: rgba(11, 15, 25, 0.85);
+  border-bottom-color: rgba(30, 41, 59, 0.8);
+}
+
+/* Ambient Glowing Background Orbs in Dark Mode */
+html.dark .glass-glow-blue-light {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(11, 15, 25, 0) 70%);
+}
+
+html.dark .glass-glow-indigo-light {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, rgba(11, 15, 25, 0) 70%);
+}
+
+html.dark .glass-glow-cyan-light {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, rgba(11, 15, 25, 0) 70%);
+}
+
+/* ==========================================================================
+   DARK THEME COMPREHENSIVE OVERRIDES & CONTRAST FIXES
+   ========================================================================== */
+
+/* Dark Mode Background Color Overrides */
+html.dark .bg-white,
+html.dark [class*="bg-white/"] {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+}
+
+html.dark [class*="bg-[#F4F7FF]"] {
+  background-color: #0B0F19 !important;
+}
+
+html.dark .bg-slate-50,
+html.dark .bg-slate-100,
+html.dark [class*="bg-slate-50"],
+html.dark [class*="bg-slate-100"] {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+}
+
+html.dark .bg-blue-50,
+html.dark .bg-blue-100,
+html.dark [class*="bg-blue-50"],
+html.dark [class*="bg-blue-100"] {
+  background-color: rgba(30, 58, 138, 0.45) !important;
+}
+
+html.dark [class*="bg-emerald-50"],
+html.dark [class*="bg-emerald-100"] {
+  background-color: rgba(6, 78, 59, 0.45) !important;
+}
+
+/* Dark Mode Text Color Overrides for High Contrast */
+html.dark .text-slate-900 {
+  color: #F8FAFC !important;
+}
+
+html.dark .text-slate-800 {
+  color: #F1F5F9 !important;
+}
+
+html.dark .text-slate-700 {
+  color: #E2E8F0 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #CBD5E1 !important;
+}
+
+html.dark .text-slate-500,
+html.dark .text-slate-400 {
+  color: #94A3B8 !important;
+}
+
+html.dark .text-blue-700,
+html.dark .text-blue-800 {
+  color: #93C5FD !important;
+}
+
+html.dark .text-blue-600 {
+  color: #60A5FA !important;
+}
+
+html.dark .text-emerald-700,
+html.dark .text-emerald-800 {
+  color: #6EE7B7 !important;
+}
+
+/* Dark Mode Border Overrides */
+html.dark .border-slate-200,
+html.dark .border-slate-100,
+html.dark .border-blue-100,
+html.dark [class*="border-slate-"],
+html.dark [class*="border-blue-"] {
+  border-color: rgba(51, 65, 85, 0.7) !important;
+}
+
+/* Range Inputs Track in Dark Mode */
+html.dark input[type="range"] {
+  background-color: #1E293B !important;
+}
+
+/* Code Tags in Dark Mode */
+html.dark code {
+  background-color: rgba(30, 41, 59, 0.9) !important;
+  border-color: rgba(51, 65, 85, 0.8) !important;
+  color: #60A5FA !important;
+}
+
+/* Dark Scrollbar */
+html.dark ::-webkit-scrollbar-track {
+  background: #0B0F19;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
+
+/* Mobile Dropdown Menu Dark Background */
+html.dark #mobile-menu {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-color: #1E293B !important;
+}
+

@@ -127,7 +127,52 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(data => applyReleaseData(data))
       .catch(err => console.log('Offline mode using fallback release data:', err));
   }
+
+  // 7. DARK THEME TOGGLE & PERSISTENCE
+  initThemeToggle();
 });
+
+// DARK THEME TOGGLE ENGINE & LOGO SWAPPER
+function initThemeToggle() {
+  const toggleBtns = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+  const logoImgs = document.querySelectorAll('.site-logo');
+  const sunIcons = document.querySelectorAll('.theme-toggle-sun');
+  const moonIcons = document.querySelectorAll('.theme-toggle-moon');
+
+  function applyTheme(isDark) {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      logoImgs.forEach(img => {
+        img.src = './assets/logo_musang_dark-theme.png';
+      });
+      sunIcons.forEach(icon => icon.classList.remove('hidden'));
+      moonIcons.forEach(icon => icon.classList.add('hidden'));
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      logoImgs.forEach(img => {
+        img.src = './assets/logo_musang.png';
+      });
+      sunIcons.forEach(icon => icon.classList.add('hidden'));
+      moonIcons.forEach(icon => icon.classList.remove('hidden'));
+    }
+  }
+
+  // Detect current active theme state
+  const isDark = document.documentElement.classList.contains('dark') ||
+    (localStorage.getItem('theme') === 'dark') ||
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+  applyTheme(isDark);
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isCurrentlyDark = document.documentElement.classList.contains('dark');
+      applyTheme(!isCurrentlyDark);
+    });
+  });
+}
 
 // INTERACTIVE PARTICLES ENGINE
 function initParticles() {
