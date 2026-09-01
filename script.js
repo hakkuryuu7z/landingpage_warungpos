@@ -160,9 +160,7 @@ function initThemeToggle() {
   }
 
   // Detect current active theme state
-  const isDark = document.documentElement.classList.contains('dark') ||
-    (localStorage.getItem('theme') === 'dark') ||
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isDark = document.documentElement.classList.contains('dark') || (localStorage.getItem('theme') === 'dark');
 
   applyTheme(isDark);
 

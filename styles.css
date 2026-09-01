@@ -180,6 +180,14 @@ html.dark .glass-navbar-light {
   border-bottom-color: rgba(30, 41, 59, 0.8);
 }
 
+html.dark .glass-navbar-light nav a {
+  color: #CBD5E1 !important;
+}
+
+html.dark .glass-navbar-light nav a:hover {
+  color: #60A5FA !important;
+}
+
 /* Ambient Glowing Background Orbs in Dark Mode */
 html.dark .glass-glow-blue-light {
   background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(11, 15, 25, 0) 70%);
@@ -198,13 +206,14 @@ html.dark .glass-glow-cyan-light {
    ========================================================================== */
 
 /* Dark Mode Background Color Overrides */
+html.dark body {
+  background-color: #0B0F19 !important;
+  color: #CBD5E1;
+}
+
 html.dark .bg-white,
 html.dark [class*="bg-white/"] {
   background-color: rgba(15, 23, 42, 0.85) !important;
-}
-
-html.dark [class*="bg-[#F4F7FF]"] {
-  background-color: #0B0F19 !important;
 }
 
 html.dark .bg-slate-50,
